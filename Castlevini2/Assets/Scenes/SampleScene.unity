@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7851d1425ae5fd24d8c9f63f39a00499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin: {fileID: 158491281}
   floorCollider: {fileID: 630882613}
   floorLayer:
     serializedVersion: 2
