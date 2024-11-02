@@ -8,9 +8,13 @@ public class PlayerController : MonoBehaviour
     Vector2 vel;
 
     public Transform skin;
-
     public Transform floorCollider;
     public LayerMask floorLayer;
+
+    public float walkSpeed;
+    int numCombo;
+    float comboTime;
+    float dashTime;
 
 
     // Start is called before the first frame update
@@ -23,7 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        Dash();
+        Death();
+        Attack();
         Jump();
         Movement();
         
@@ -31,15 +38,19 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       rb.velocity = vel;
+        if(dashTime > 0.5)
+        {
+            rb.velocity = vel;
+        }
     }
 
-    // MOVIMENTO ESQUERDA/DIREITA
+    // MOVIMENTO
     private void Movement()
     {
-        vel = new Vector2(Input.GetAxisRaw("Horizontal"), rb.velocity.y);
+        vel = new Vector2(Input.GetAxisRaw("Horizontal")*walkSpeed, rb.velocity.y);
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
+            skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
             skin.GetComponent<Animator>().SetBool("PlayerRun", true);
         }
         else
@@ -47,16 +58,80 @@ public class PlayerController : MonoBehaviour
             skin.GetComponent<Animator>().SetBool("PlayerRun", false);
         }
     }
+    
+    // DASH
+    private void Dash()
+    {
+        dashTime = dashTime + Time.deltaTime;
+        if (Input.GetButtonDown("Fire2") && dashTime > 1)
+        {
+            dashTime = 0;
+            skin.GetComponent<Animator>().Play("PlayerDash", -1);
+            rb.velocity = Vector2.zero;
+            rb.AddForce(new Vector2(skin.localScale.x * 200, 0));
+        }
+    }
 
+    // PULO
     private void Jump()
     {
-        bool canJump = Physics2D.OverlapCircle(floorCollider.position, 0.2f, floorLayer);
+        bool canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
         if (Input.GetButtonDown("Jump") && canJump)
         {
+            skin.GetComponent<Animator>().SetBool("MidAir", true);
             skin.GetComponent<Animator>().Play("PlayerJump",-1);
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0, 250));
         }
+         if (canJump)
+         {
+            skin.GetComponent<Animator>().SetBool("MidAir", false);
+        }
         
+    }
+
+    // ATAQUES
+    private void Attack()
+    {
+        comboTime = comboTime + Time.deltaTime;
+        bool canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
+        if (canJump == false && Input.GetButtonDown("Fire1") && comboTime >0.5f)
+        {
+            numCombo++;
+            if (numCombo > 1)
+            {
+                numCombo = 1;
+            }
+            comboTime = 0;
+            //rb.velocity = Vector2.zero;
+            rb.AddForce(new Vector2(0, 50));
+            skin.GetComponent<Animator>().Play("PlayerJumpAttack2", -1);
+        }
+
+        if (Input.GetButtonDown("Fire1") && comboTime > 0.5f)
+        {
+            numCombo++;
+            if (numCombo > 3) numCombo = 1;
+            comboTime = 0;
+            skin.GetComponent<Animator>().Play("PlayerAttack" + numCombo, -1);
+        }
+        if (comboTime >= 1)
+        {
+            numCombo = 0;
+        }
+    }
+
+    // MORTE
+    private void Death()
+    {
+        if (GetComponent<Character>().life <= 0)
+        {
+            this.enabled = false;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
     }
 }
