@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
 
     public float walkSpeed;
+    float jumpTime;
     int numCombo;
     float comboTime;
     float dashTime;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         Attack();
         Jump();
         Movement();
-        
+        skin.GetComponent<Animator>().SetFloat("yVelocity", vel.y);
     }
 
     private void FixedUpdate()
@@ -76,18 +77,17 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         bool canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
-        if (Input.GetButtonDown("Jump") && canJump)
+        jumpTime = jumpTime + Time.deltaTime;
+        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1.5f)
         {
-            skin.GetComponent<Animator>().SetBool("MidAir", true);
-            skin.GetComponent<Animator>().Play("PlayerJump",-1);
+            jumpTime = 0;
+            skin.GetComponent<Animator>().SetBool("Jump", true);
             rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(0, 250));
+            rb.AddForce(new Vector2(0, 300));
         }
-         if (canJump)
-         {
-            skin.GetComponent<Animator>().SetBool("MidAir", false);
-        }
-        
+
+        skin.GetComponent<Animator>().SetBool("Jump", !canJump);
+
     }
 
     // ATAQUES
