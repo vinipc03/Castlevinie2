@@ -138,6 +138,10 @@ public class PlayerController : MonoBehaviour
         {
             handlingObj = 2;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            handlingObj = 3;
+        }
 
         // FUNÇÃO DE CADA TECLA
         if (handlingObj == 1)
@@ -152,6 +156,13 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Fire3") && canJump)
             {
                 skin.GetComponent<Animator>().Play("DrinkMp", -1);
+            }
+        }
+        if (handlingObj == 3)
+        {
+            if (Input.GetButtonDown("Fire3"))
+            {
+                skin.GetComponent<Animator>().Play("HolyBolt", -1);
             }
         }
     }

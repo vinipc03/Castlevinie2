@@ -1,121 +1,91 @@
 fileFormatVersion: 2
-guid: 71a66a4597954794c93ebeb85eced3bc
+guid: d7198ba2f4cc50646869ce669e389d0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3271018414035990580
-    second: DrinkHpPotion_0
+      213: 8472113949391821149
+    second: HolyBolt_0
   - first:
-      213: 5655571509839644625
-    second: DrinkHpPotion_1
+      213: 3271131425914900342
+    second: HolyBolt_1
   - first:
-      213: 1237811165957668513
-    second: DrinkHpPotion_2
+      213: -3304863876965205382
+    second: HolyBolt_2
   - first:
-      213: -4487145145434871954
-    second: DrinkHpPotion_3
+      213: 6913093217195676786
+    second: HolyBolt_3
   - first:
-      213: -3617575141881460816
-    second: DrinkHpPotion_4
+      213: -916522717002139516
+    second: HolyBolt_4
   - first:
-      213: 1482721488788687029
-    second: DrinkHpPotion_5
+      213: 5273118460752427281
+    second: HolyBolt_5
   - first:
-      213: 4404112308605947733
-    second: DrinkHpPotion_6
+      213: -628976376600276097
+    second: HolyBolt_6
   - first:
-      213: 9016811666705958367
-    second: DrinkHpPotion_7
+      213: -4916197144128968186
+    second: HolyBolt_7
   - first:
-      213: -2537107515823978295
-    second: DrinkHpPotion_8
+      213: -6253997302659812456
+    second: HolyBolt_8
   - first:
-      213: 8216840908435641517
-    second: DrinkHpPotion_9
+      213: -9212739089491047733
+    second: HolyBolt_9
   - first:
-      213: 8526912305327888524
-    second: DrinkHpPotion_10
+      213: -8704479389664272349
+    second: HolyBolt_10
   - first:
-      213: 8754335236457238103
-    second: DrinkHpPotion_11
+      213: 9044458167027428996
+    second: HolyBolt_11
   - first:
-      213: 5292773104776468225
-    second: DrinkHpPotion_12
+      213: -4757275785354784418
+    second: HolyBolt_12
   - first:
-      213: 6615671922189365251
-    second: DrinkHpPotion_13
+      213: 8531371920909227757
+    second: HolyBolt_13
   - first:
-      213: -3135736769899226471
-    second: DrinkHpPotion_14
+      213: 5638957169462936531
+    second: HolyBolt_0
   - first:
-      213: 4122662545585477858
-    second: DrinkHpPotion_15
+      213: 1125632284321402457
+    second: HolyBolt_1
   - first:
-      213: -3088092288600379163
-    second: DrinkHpPotion_16
+      213: -1914971776073078769
+    second: HolyBolt_2
   - first:
-      213: -4695490194474421132
-    second: DrinkHpPotion_17
+      213: -2543197118271882215
+    second: HolyBolt_3
   - first:
-      213: 716283606106834877
-    second: DrinkHpPotion_18
+      213: -3302947845027817963
+    second: HolyBolt_4
   - first:
-      213: 913187357189625424
-    second: DrinkHpPotion_0
+      213: 7373402645877029148
+    second: HolyBolt_5
   - first:
-      213: -6267489513905800811
-    second: DrinkHpPotion_1
+      213: -6001759978599856249
+    second: HolyBolt_6
   - first:
-      213: -869963558081641669
-    second: DrinkHpPotion_2
+      213: -8230833021273802386
+    second: HolyBolt_7
   - first:
-      213: 4912588489495868103
-    second: DrinkHpPotion_3
+      213: -146974342301272935
+    second: HolyBolt_8
   - first:
-      213: -2357158407404655369
-    second: DrinkHpPotion_4
+      213: -6759438328905719608
+    second: HolyBolt_9
   - first:
-      213: 5228550301728699879
-    second: DrinkHpPotion_5
+      213: 5310015740509468343
+    second: HolyBolt_10
   - first:
-      213: 6582588567243222255
-    second: DrinkHpPotion_6
+      213: -7033570272191116143
+    second: HolyBolt_11
   - first:
-      213: 870418597111315770
-    second: DrinkHpPotion_7
+      213: -1363458149023282276
+    second: HolyBolt_12
   - first:
-      213: -4394485256580780872
-    second: DrinkHpPotion_8
-  - first:
-      213: -2471470797109123186
-    second: DrinkHpPotion_9
-  - first:
-      213: -2799405654440991096
-    second: DrinkHpPotion_10
-  - first:
-      213: -6040712805226069408
-    second: DrinkHpPotion_11
-  - first:
-      213: 955372707922407937
-    second: DrinkHpPotion_12
-  - first:
-      213: 8710692522147359296
-    second: DrinkHpPotion_13
-  - first:
-      213: -138627313616713763
-    second: DrinkHpPotion_14
-  - first:
-      213: 8252577646235811296
-    second: DrinkHpPotion_15
-  - first:
-      213: -5816657949970945798
-    second: DrinkHpPotion_16
-  - first:
-      213: 2814063032205839550
-    second: DrinkHpPotion_17
-  - first:
-      213: 52779357460903448
-    second: DrinkHpPotion_18
+      213: 787574496069553861
+    second: HolyBolt_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -177,7 +147,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -189,7 +159,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -201,7 +171,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -215,7 +185,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DrinkHpPotion_0
+      name: HolyBolt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -223,20 +193,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0565aa6201b4cac00800000000000000
-      internalID: 913187357189625424
+      spriteID: 3d30b7d4ba9914e40800000000000000
+      internalID: 5638957169462936531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_1
+      name: HolyBolt_1
       rect:
         serializedVersion: 2
         x: 142
@@ -244,20 +214,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599b8226e776509a0800000000000000
-      internalID: -6267489513905800811
+      spriteID: 95e40b6499c0f9f00800000000000000
+      internalID: 1125632284321402457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_2
+      name: HolyBolt_2
       rect:
         serializedVersion: 2
         x: 284
@@ -265,20 +235,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b334201d0c44de3f0800000000000000
-      internalID: -869963558081641669
+      spriteID: f08e34cc057ac65e0800000000000000
+      internalID: -1914971776073078769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_3
+      name: HolyBolt_3
       rect:
         serializedVersion: 2
         x: 426
@@ -286,20 +256,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2f21404350d2440800000000000000
-      internalID: 4912588489495868103
+      spriteID: 91c7b9302bfb4bcd0800000000000000
+      internalID: -2543197118271882215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_4
+      name: HolyBolt_4
       rect:
         serializedVersion: 2
         x: 568
@@ -307,20 +277,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fce15fcae0b94fd0800000000000000
-      internalID: -2357158407404655369
+      spriteID: 51699794f629922d0800000000000000
+      internalID: -3302947845027817963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_5
+      name: HolyBolt_5
       rect:
         serializedVersion: 2
         x: 710
@@ -328,20 +298,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5fcc02cca8f8840800000000000000
-      internalID: 5228550301728699879
+      spriteID: c19fc65f3a6935660800000000000000
+      internalID: 7373402645877029148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_6
+      name: HolyBolt_6
       rect:
         serializedVersion: 2
         x: 852
@@ -349,20 +319,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fec64150d6d0a5b50800000000000000
-      internalID: 6582588567243222255
+      spriteID: 7874660291775bca0800000000000000
+      internalID: -6001759978599856249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_7
+      name: HolyBolt_7
       rect:
         serializedVersion: 2
         x: 994
@@ -370,20 +340,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3db6b63a19541c00800000000000000
-      internalID: 870418597111315770
+      spriteID: e697b69d9f436cd80800000000000000
+      internalID: -8230833021273802386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_8
+      name: HolyBolt_8
       rect:
         serializedVersion: 2
         x: 1136
@@ -391,20 +361,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bcafce21f6a303c0800000000000000
-      internalID: -4394485256580780872
+      spriteID: 99439084d97d5fdf0800000000000000
+      internalID: -146974342301272935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_9
+      name: HolyBolt_9
       rect:
         serializedVersion: 2
         x: 1278
@@ -412,20 +382,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e872f89876293bdd0800000000000000
-      internalID: -2471470797109123186
+      spriteID: 8c02a6427a6a132a0800000000000000
+      internalID: -6759438328905719608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_10
+      name: HolyBolt_10
       rect:
         serializedVersion: 2
         x: 1420
@@ -433,20 +403,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88623d0a3638629d0800000000000000
-      internalID: -2799405654440991096
+      spriteID: 7b6bcccae27f0b940800000000000000
+      internalID: 5310015740509468343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_11
+      name: HolyBolt_11
       rect:
         serializedVersion: 2
         x: 1562
@@ -454,20 +424,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 062c85e65b31b2ca0800000000000000
-      internalID: -6040712805226069408
+      spriteID: 19c0d475a1db36e90800000000000000
+      internalID: -7033570272191116143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_12
+      name: HolyBolt_12
       rect:
         serializedVersion: 2
         x: 1704
@@ -475,20 +445,20 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10271d38a6a224d00800000000000000
-      internalID: 955372707922407937
+      spriteID: c9b0b519906041de0800000000000000
+      internalID: -1363458149023282276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DrinkHpPotion_13
+      name: HolyBolt_13
       rect:
         serializedVersion: 2
         x: 1846
@@ -496,119 +466,14 @@ TextureImporter:
         width: 142
         height: 141
       alignment: 9
-      pivot: {x: 0.55, y: 0.49}
+      pivot: {x: 0.52, y: 0.51}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04aae3a92b892e870800000000000000
-      internalID: 8710692522147359296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DrinkHpPotion_14
-      rect:
-        serializedVersion: 2
-        x: 1988
-        y: 0
-        width: 142
-        height: 141
-      alignment: 9
-      pivot: {x: 0.55, y: 0.49}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd785b7513f731ef0800000000000000
-      internalID: -138627313616713763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DrinkHpPotion_15
-      rect:
-        serializedVersion: 2
-        x: 2130
-        y: 0
-        width: 142
-        height: 141
-      alignment: 9
-      pivot: {x: 0.55, y: 0.49}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0edf63d25ab078270800000000000000
-      internalID: 8252577646235811296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DrinkHpPotion_16
-      rect:
-        serializedVersion: 2
-        x: 2272
-        y: 0
-        width: 142
-        height: 141
-      alignment: 9
-      pivot: {x: 0.55, y: 0.49}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af8a7089964174fa0800000000000000
-      internalID: -5816657949970945798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DrinkHpPotion_17
-      rect:
-        serializedVersion: 2
-        x: 2414
-        y: 0
-        width: 142
-        height: 141
-      alignment: 9
-      pivot: {x: 0.55, y: 0.49}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebc00321b6f8d0720800000000000000
-      internalID: 2814063032205839550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DrinkHpPotion_18
-      rect:
-        serializedVersion: 2
-        x: 2556
-        y: 0
-        width: 142
-        height: 141
-      alignment: 9
-      pivot: {x: 0.55, y: 0.49}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8163ee4cb828bb000800000000000000
-      internalID: 52779357460903448
+      spriteID: 5ce0268d4d60eea00800000000000000
+      internalID: 787574496069553861
       vertices: []
       indices: 
       edges: []
