@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed;
     float jumpTime;
-    int numCombo;
+    public int numCombo;
     float comboTime;
     float dashTime;
 
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         bool canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
-        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1.5f)
+        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1f)
         {
             jumpTime = 0;
             skin.GetComponent<Animator>().SetBool("Jump", true);
@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
         if (GetComponent<Character>().life <= 0)
         {
             this.enabled = false;
+            rb.simulated = false;
         }
     }
 

@@ -5,21 +5,48 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public int life;
-    public int initialLife;
+    public int maxLife;
     public Transform skin;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialLife = life;
+        maxLife = life;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(life <= 0)
+        LifeControl();
+        Death();
+
+    }
+
+    public void Death()
+    {
+        if (life <= 0)
         {
             skin.GetComponent<Animator>().Play("Die", -1);
+        }
+    }
+
+    public void PlayerDamage(int value)
+    {
+        life = life - value;
+        skin.GetComponent<Animator>().Play("TakeHit", -1);
+
+    }
+
+    public void LifeControl()
+    {
+        if (life < 1)
+        {
+            life = 0;
+        }
+
+        if (life > maxLife)
+        {
+            life = maxLife;
         }
     }
 }
