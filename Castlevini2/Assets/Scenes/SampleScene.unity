@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 158491279}
   m_Layer: 0
   m_Name: Skin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,7 +404,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   walkSpeed: 2
+  canJump: 0
   numCombo: 0
+  onAttack: 0
 --- !u!114 &725103123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.48
+      value: 7.32
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.662
+      value: -0.57
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.z

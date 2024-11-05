@@ -10,14 +10,18 @@ public class PlayerController : MonoBehaviour
     public Transform skin;
     public Transform floorCollider;
     public LayerMask floorLayer;
+    private int handlingObj;
 
+    [Header("Movement")]
     public float walkSpeed;
     float jumpTime;
+    float dashTime;
+    public bool canJump;
+
+    [Header("Combat")]
     public int numCombo;
     float comboTime;
-    float dashTime;
-
-
+    public bool onAttack;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +38,9 @@ public class PlayerController : MonoBehaviour
         Attack();
         Jump();
         Movement();
+        Habilities();
         skin.GetComponent<Animator>().SetFloat("yVelocity", vel.y);
+
     }
 
     private void FixedUpdate()
@@ -76,7 +82,7 @@ public class PlayerController : MonoBehaviour
     // PULO
     private void Jump()
     {
-        bool canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
+        canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
         if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1f)
         {
@@ -121,6 +127,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Habilities()
+    {
+        // TECLAS DE ATALHO
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            handlingObj = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            handlingObj = 2;
+        }
+
+        // FUNÇÃO DE CADA TECLA
+        if (handlingObj == 1)
+        {
+            if (Input.GetButtonDown("Fire3") && canJump)
+            {
+                skin.GetComponent<Animator>().Play("DrinkHp", -1);
+            }
+        }
+        if (handlingObj == 2)
+        {
+            if (Input.GetButtonDown("Fire3") && canJump)
+            {
+                skin.GetComponent<Animator>().Play("DrinkMp", -1);
+            }
+        }
+    }
+
     // MORTE
     private void Death()
     {
@@ -130,6 +165,7 @@ public class PlayerController : MonoBehaviour
             rb.simulated = false;
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {
