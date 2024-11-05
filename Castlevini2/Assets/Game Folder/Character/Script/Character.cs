@@ -6,18 +6,27 @@ public class Character : MonoBehaviour
 {
     public int life;
     public int maxLife;
+    public int mana;
+    public int maxMana;
     public Transform skin;
+
+    public LifeController lifeBar;
+    public ManaController manaBar;
 
     // Start is called before the first frame update
     void Start()
     {
         maxLife = life;
+        lifeBar.setMaxLife(life);
+        maxMana = mana;
+        manaBar.setMaxMana(mana);
     }
 
     // Update is called once per frame
     void Update()
     {
         LifeControl();
+        ManaControl();
         Death();
 
     }
@@ -34,7 +43,24 @@ public class Character : MonoBehaviour
     {
         life = life - value;
         skin.GetComponent<Animator>().Play("TakeHit", -1);
+        lifeBar.SetLife(life);
 
+    }
+    public void MpDecrease(int value)
+    {
+        mana = mana - value;
+        manaBar.SetMana(mana);
+    }
+
+    public void HpHeal(int value)
+    {
+        life = life + value;
+        lifeBar.SetLife(life);
+    }
+    public void MpHeal(int value)
+    {
+        mana = mana + value;
+        manaBar.SetMana(mana);
     }
 
     public void LifeControl()
@@ -47,6 +73,19 @@ public class Character : MonoBehaviour
         if (life > maxLife)
         {
             life = maxLife;
+        }
+    }
+
+    public void ManaControl()
+    {
+        if (mana < 1)
+        {
+            mana = 0;
+        }
+
+        if (mana > maxMana)
+        {
+            mana = maxMana;
         }
     }
 }

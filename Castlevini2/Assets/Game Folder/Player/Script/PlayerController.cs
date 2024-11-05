@@ -10,22 +10,32 @@ public class PlayerController : MonoBehaviour
     public Transform skin;
     public Transform floorCollider;
     public LayerMask floorLayer;
-    private int handlingObj;
+    [HideInInspector] public int handlingObj;
+
+    [Header("Potions")]
+    public int hpPotCount;
+    public int mpPotCount;
+    public int maxHpPotCount;
+    public int maxMpPotCount;
+
 
     [Header("Movement")]
     public float walkSpeed;
     float jumpTime;
     float dashTime;
-    public bool canJump;
+    [HideInInspector] public bool canJump;
 
     [Header("Combat")]
-    public int numCombo;
+    [HideInInspector] public int numCombo;
     float comboTime;
-    public bool onAttack;
+    float spellTime;
+    [HideInInspector]  public bool onAttack;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        maxHpPotCount = 3;
+        maxMpPotCount = 3;
         
     }
 
@@ -129,41 +139,69 @@ public class PlayerController : MonoBehaviour
 
     public void Habilities()
     {
-        // TECLAS DE ATALHO
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // TECLAS DE ATALHO PARA PODERES
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            handlingObj = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             handlingObj = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             handlingObj = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+
+        // TECLA POÇÃO DE VIDA
+        if (hpPotCount >= 1)
         {
-            handlingObj = 3;
+            if (Input.GetKeyDown(KeyCode.Alpha1) && canJump)
+            {
+                skin.GetComponent<Animator>().Play("DrinkHp", -1);
+                this.GetComponent<Character>().HpHeal(5);
+                hpPotCount--;
+            }
+        }
+
+        // TECLA POÇÃO DE MANA
+        if (mpPotCount >= 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha2) && canJump)
+            {
+                skin.GetComponent<Animator>().Play("DrinkMp", -1);
+                this.GetComponent<Character>().MpHeal(5);
+                mpPotCount--;
+            }
         }
 
         // FUNÇÃO DE CADA TECLA
+        spellTime = spellTime + Time.deltaTime;
+        if (handlingObj == 0)
+        {
+            if (this.GetComponent<Character>().mana > 0)
+            {
+                if (Input.GetButtonDown("Fire3"))
+                {
+                    if (spellTime >= 1)
+                    {
+                        skin.GetComponent<Animator>().Play("HolyBolt", -1);
+                        this.GetComponent<Character>().MpDecrease(1);
+                        spellTime = 0;
+                    }
+                }
+            }
+
+        }
         if (handlingObj == 1)
         {
-            if (Input.GetButtonDown("Fire3") && canJump)
-            {
-                skin.GetComponent<Animator>().Play("DrinkHp", -1);
-            }
+            
+            
         }
         if (handlingObj == 2)
         {
-            if (Input.GetButtonDown("Fire3") && canJump)
-            {
-                skin.GetComponent<Animator>().Play("DrinkMp", -1);
-            }
-        }
-        if (handlingObj == 3)
-        {
-            if (Input.GetButtonDown("Fire3"))
-            {
-                skin.GetComponent<Animator>().Play("HolyBolt", -1);
-            }
+            
+            
         }
     }
 

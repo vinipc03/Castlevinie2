@@ -29,12 +29,12 @@ public class AttackCollider : MonoBehaviour
             }
             if (player.GetComponent<PlayerController>().numCombo == 2)
             {
-                collision.GetComponent<Character>().life -= 2;
+                collision.GetComponent<Character>().life -= 1;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
             }
             if (player.GetComponent<PlayerController>().numCombo == 3)
             {
-                collision.GetComponent<Character>().life -= 3;
+                collision.GetComponent<Character>().life -= 2;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
             }
         }
