@@ -37,6 +37,12 @@ public class AttackCollider : MonoBehaviour
                 collision.GetComponent<Character>().life -= 2;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
             }
+            if (player.GetComponent<PlayerController>().handlingObj == 1 && player.GetComponent<PlayerController>().holySlash == true)
+            {
+                collision.GetComponent<Character>().life -= 5;
+                collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
+                player.GetComponent<PlayerController>().holySlash = false;
+            }
         }
     }
 }

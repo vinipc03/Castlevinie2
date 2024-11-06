@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Combat")]
     [HideInInspector] public int numCombo;
+    [HideInInspector] public bool holySlash;
     float comboTime;
     float spellTime;
     [HideInInspector]  public bool onAttack;
@@ -36,7 +37,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         maxHpPotCount = 3;
         maxMpPotCount = 3;
-        
     }
 
     // Update is called once per frame
@@ -139,21 +139,7 @@ public class PlayerController : MonoBehaviour
 
     public void Habilities()
     {
-        // TECLAS DE ATALHO PARA PODERES
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            handlingObj = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            handlingObj = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            handlingObj = 2;
-        }
-
-        // TECLA POÇÃO DE VIDA
+        // TECLA 1 POÇÃO DE VIDA
         if (hpPotCount >= 1)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && canJump)
@@ -164,7 +150,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // TECLA POÇÃO DE MANA
+        // TECLA 2 POÇÃO DE MANA
         if (mpPotCount >= 1)
         {
             if (Input.GetKeyDown(KeyCode.Alpha2) && canJump)
@@ -175,7 +161,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // FUNÇÃO DE CADA TECLA
+        // TECLAS DE ATALHO PARA PODERES
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            handlingObj = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            handlingObj = 1;
+        }
+
+        // BOTÃO 3 HOLY BOLT
         spellTime = spellTime + Time.deltaTime;
         if (handlingObj == 0)
         {
@@ -193,15 +190,24 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        // BOTÃO 4 HOLY SLASH
         if (handlingObj == 1)
         {
-            
-            
-        }
-        if (handlingObj == 2)
-        {
-            
-            
+            if (this.GetComponent<Character>().mana > 0)
+            {
+                if (Input.GetButtonDown("Fire3"))
+                {
+                    if (spellTime >= 1)
+                    {
+                        holySlash = true;
+                        skin.GetComponent<Animator>().Play("PlayerHolySlash", -1);
+                        this.GetComponent<Character>().MpDecrease(2);
+                        spellTime = 0;
+                    }
+                }
+            }
+
         }
     }
 

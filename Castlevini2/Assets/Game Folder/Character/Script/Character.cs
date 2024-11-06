@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
         lifeBar.SetLife(life);
 
     }
+
     public void MpDecrease(int value)
     {
         mana = mana - value;
@@ -57,6 +58,7 @@ public class Character : MonoBehaviour
         life = life + value;
         lifeBar.SetLife(life);
     }
+
     public void MpHeal(int value)
     {
         mana = mana + value;
