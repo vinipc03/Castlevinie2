@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     public float walkSpeed;
+    private float horizontal;
+    [HideInInspector] private bool isFacingRight = true;
     float jumpTime;
     float dashTime;
     [HideInInspector] public bool canJump;
@@ -47,27 +49,37 @@ public class PlayerController : MonoBehaviour
         Death();
         Attack();
         Jump();
+        Flip();
         Movement();
         Habilities();
         skin.GetComponent<Animator>().SetFloat("yVelocity", vel.y);
-
+        horizontal = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
     {
         if(dashTime > 0.5)
         {
-            rb.velocity = vel;
+            //rb.velocity = vel;
+            rb.velocity = new Vector2(horizontal * walkSpeed, rb.velocity.y);
         }
     }
 
     // MOVIMENTO
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
+        }
+    }
     private void Movement()
     {
-        vel = new Vector2(Input.GetAxisRaw("Horizontal")*walkSpeed, rb.velocity.y);
+        //vel = new Vector2(Input.GetAxisRaw("Horizontal")*walkSpeed, rb.velocity.y);
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
+            //skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
             skin.GetComponent<Animator>().SetBool("PlayerRun", true);
         }
         else
