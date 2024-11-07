@@ -5,6 +5,8 @@ using UnityEngine;
 public class AttackCollider : MonoBehaviour
 {
     public Transform player;
+    private float horizontal;
+    [HideInInspector] private bool isFacingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,8 @@ public class AttackCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Flip();
+        horizontal = Input.GetAxisRaw("Horizontal");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +46,15 @@ public class AttackCollider : MonoBehaviour
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
                 player.GetComponent<PlayerController>().holySlash = false;
             }
+        }
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }

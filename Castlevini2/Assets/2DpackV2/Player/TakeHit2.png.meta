@@ -1,55 +1,67 @@
 fileFormatVersion: 2
-guid: 07bdc457bb0e03043977f21ab5ec3eb1
+guid: c86183d923653d84aadd0797f8636753
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8595333740943071063
-    second: TakeHit_0
+      213: 7593866121535164776
+    second: TakeHit2_0
   - first:
-      213: 4671921861633770783
-    second: TakeHit_1
+      213: -714491112652324175
+    second: TakeHit2_1
   - first:
-      213: -4603916822363232310
-    second: TakeHit_2
+      213: -4128169483462827103
+    second: TakeHit2_2
   - first:
-      213: -1235039965888446814
-    second: TakeHit_3
+      213: -8848113488757091277
+    second: TakeHit2_3
   - first:
-      213: -6050030217802571896
-    second: TakeHit_4
+      213: -8722135018534942925
+    second: TakeHit2_4
   - first:
-      213: -1833771380658991640
-    second: TakeHit_5
+      213: 6136274292673356978
+    second: TakeHit2_5
   - first:
-      213: -7034635257373550181
-    second: TakeHit_6
+      213: -2906529562964556848
+    second: TakeHit2_6
   - first:
-      213: 7910654019616581999
-    second: TakeHit_7
+      213: 6636578489722296945
+    second: TakeHit2_7
   - first:
-      213: -6543588975942556560
-    second: TakeHit_0
+      213: 2173218051895021742
+    second: TakeHit2_8
   - first:
-      213: -5295221889783940082
-    second: TakeHit_1
+      213: -356665213043342538
+    second: TakeHit2_9
   - first:
-      213: 279670937984998461
-    second: TakeHit_2
+      213: -6057831877362973819
+    second: TakeHit2_0
   - first:
-      213: -8630966316725197990
-    second: TakeHit_3
+      213: 5708498594411013968
+    second: TakeHit2_1
   - first:
-      213: -7630348760792174813
-    second: TakeHit_4
+      213: -3542072900567608449
+    second: TakeHit2_2
   - first:
-      213: -3670914788711050243
-    second: TakeHit_5
+      213: -4750212872305911751
+    second: TakeHit2_3
   - first:
-      213: 3946488257983305461
-    second: TakeHit_6
+      213: 3648327552387460567
+    second: TakeHit2_4
   - first:
-      213: 5566153047596500435
-    second: TakeHit_7
+      213: -428299416963077469
+    second: TakeHit2_5
+  - first:
+      213: -5690520989921131280
+    second: TakeHit2_6
+  - first:
+      213: -4385947689884675991
+    second: TakeHit2_7
+  - first:
+      213: -279791561496046617
+    second: TakeHit2_8
+  - first:
+      213: -98427525405294048
+    second: TakeHit2_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -149,7 +161,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TakeHit_0
+      name: TakeHit2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07428ccee708035a0800000000000000
-      internalID: -6543588975942556560
+      spriteID: 5830eb8d0024eeba0800000000000000
+      internalID: -6057831877362973819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_1
+      name: TakeHit2_1
       rect:
         serializedVersion: 2
         x: 142
@@ -184,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0c3e8c1fb79386b0800000000000000
-      internalID: -5295221889783940082
+      spriteID: 0576fa80a39a83f40800000000000000
+      internalID: 5708498594411013968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_2
+      name: TakeHit2_2
       rect:
         serializedVersion: 2
         x: 284
@@ -205,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c98908c3791e300800000000000000
-      internalID: 279670937984998461
+      spriteID: f735121b67708dec0800000000000000
+      internalID: -3542072900567608449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_3
+      name: TakeHit2_3
       rect:
         serializedVersion: 2
         x: 426
@@ -226,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a53ab3f1dd5a83880800000000000000
-      internalID: -8630966316725197990
+      spriteID: 938d7b27f8ad31eb0800000000000000
+      internalID: -4750212872305911751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_4
+      name: TakeHit2_4
       rect:
         serializedVersion: 2
         x: 568
@@ -247,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32fe3a8ba3e8b1690800000000000000
-      internalID: -7630348760792174813
+      spriteID: 7dd2358449671a230800000000000000
+      internalID: 3648327552387460567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_5
+      name: TakeHit2_5
       rect:
         serializedVersion: 2
         x: 710
@@ -268,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df35622f27a4e0dc0800000000000000
-      internalID: -3670914788711050243
+      spriteID: 3aaa86213ff5e0af0800000000000000
+      internalID: -428299416963077469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_6
+      name: TakeHit2_6
       rect:
         serializedVersion: 2
         x: 852
@@ -289,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f65857492eb4c630800000000000000
-      internalID: 3946488257983305461
+      spriteID: 0f4c8d03f453701b0800000000000000
+      internalID: -5690520989921131280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TakeHit_7
+      name: TakeHit2_7
       rect:
         serializedVersion: 2
         x: 994
@@ -310,8 +322,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d5827fb4b2fe3d40800000000000000
-      internalID: 5566153047596500435
+      spriteID: 9609af450dbf123c0800000000000000
+      internalID: -4385947689884675991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeHit2_8
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.6, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e350e5ae0bfd1cf0800000000000000
+      internalID: -279791561496046617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TakeHit2_9
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.6, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022c818efa052aef0800000000000000
+      internalID: -98427525405294048
       vertices: []
       indices: 
       edges: []

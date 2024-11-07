@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
 
     public LifeController lifeBar;
     public ManaController manaBar;
+    public float kbForce;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,6 @@ public class Character : MonoBehaviour
         LifeControl();
         ManaControl();
         Death();
-
     }
 
     public void Death()
@@ -46,6 +46,8 @@ public class Character : MonoBehaviour
         lifeBar.SetLife(life);
 
     }
+
+    
 
     public void MpDecrease(int value)
     {

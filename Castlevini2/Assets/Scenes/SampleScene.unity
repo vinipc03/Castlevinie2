@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 158491280}
   - component: {fileID: 158491279}
   - component: {fileID: 158491282}
+  - component: {fileID: 158491283}
   m_Layer: 0
   m_Name: Skin
   m_TagString: Player
@@ -475,6 +476,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCollider: {fileID: 2111159734}
   holyBoltPrefab: {fileID: 540714396296090484, guid: db1af07d8f7a5dc40b757ec8f5aa3680, type: 3}
+--- !u!114 &158491283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158491278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fac8ef78eace434c8c040c68e70607f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 725103120}
 --- !u!1 &162311503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1197,6 @@ GameObject:
   m_Component:
   - component: {fileID: 725103120}
   - component: {fileID: 725103119}
-  - component: {fileID: 725103118}
   - component: {fileID: 725103121}
   - component: {fileID: 725103122}
   - component: {fileID: 725103123}
@@ -1194,32 +1207,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &725103118
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725103117}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.027302533, y: 0.79316115}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4535274, y: 1.5899749}
-  m_EdgeRadius: 0
 --- !u!70 &725103119
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1244,7 +1231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725103117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.58, y: -0.62, z: -3.8975737}
+  m_LocalPosition: {x: -2.58, y: -0.669, z: -3.8975737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 158491281}
@@ -1295,8 +1282,9 @@ MonoBehaviour:
   mpPotCount: 0
   maxHpPotCount: 0
   maxMpPotCount: 0
-  walkSpeed: 2
   canJump: 0
+  walkSpeed: 2
+  kbForce: 5
   numCombo: 0
   holySlash: 0
   onAttack: 0
@@ -1319,6 +1307,7 @@ MonoBehaviour:
   skin: {fileID: 158491281}
   lifeBar: {fileID: 2110735004}
   manaBar: {fileID: 1171048221}
+  kbForce: 0
 --- !u!1 &765796106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,17 +3286,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 572920241823055310, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.76
+      objectReference: {fileID: 0}
     - target: {fileID: 572920242164319437, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_Name
       value: Skeleton1
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.93
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3344,6 +3337,10 @@ PrefabInstance:
     - target: {fileID: 572920242164319438, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572920242733390475, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a576bf7fb893145419beb6dccc25c0b1, type: 3}

@@ -6,14 +6,13 @@ public class HolyBoltScript : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody2D rb;
-    float lifeTime;
     public GameObject impactEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.right * speed;
-        lifeTime = lifeTime * Time.deltaTime;
+        Destroy(this.gameObject, 5f);
     }
     private void Update()
     {

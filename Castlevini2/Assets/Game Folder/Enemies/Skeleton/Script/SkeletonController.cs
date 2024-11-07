@@ -10,6 +10,7 @@ public class SkeletonController : MonoBehaviour
     public Transform skin;
 
     public bool goLeft;
+
     
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,7 @@ public class SkeletonController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Character>().PlayerDamage(1);
+            collision.GetComponent<PlayerController>().KnockBack(transform.position);
         }
     }
 }

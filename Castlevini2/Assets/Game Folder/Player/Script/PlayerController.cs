@@ -18,74 +18,95 @@ public class PlayerController : MonoBehaviour
     public int maxHpPotCount;
     public int maxMpPotCount;
 
-
     [Header("Movement")]
+    [HideInInspector] public bool canJump;
     public float walkSpeed;
-    private float horizontal;
-    [HideInInspector] private bool isFacingRight = true;
     float jumpTime;
     float dashTime;
-    [HideInInspector] public bool canJump;
+    public float kbForce;
+    private bool isKnockedBack = false;
+    private float knockbackDuration = 0.5f;
+
 
     [Header("Combat")]
     [HideInInspector] public int numCombo;
     [HideInInspector] public bool holySlash;
     float comboTime;
     float spellTime;
-    [HideInInspector]  public bool onAttack;
+    [HideInInspector] public bool onAttack;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         maxHpPotCount = 3;
         maxMpPotCount = 3;
+        hpPotCount = 3;
+        mpPotCount = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Movement();
+        Jump();
+        Habilities();
+        Attack();
         Dash();
         Death();
-        Attack();
-        Jump();
-        Flip();
-        Movement();
-        Habilities();
-        skin.GetComponent<Animator>().SetFloat("yVelocity", vel.y);
-        horizontal = Input.GetAxisRaw("Horizontal");
+        skin.GetComponent<Animator>().SetFloat("yVelocity", rb.velocity.y);
+        
     }
 
     private void FixedUpdate()
     {
-        if(dashTime > 0.5)
+        if (!onAttack && !isKnockedBack)
         {
-            //rb.velocity = vel;
-            rb.velocity = new Vector2(horizontal * walkSpeed, rb.velocity.y);
+            if (dashTime > 0.5)
+            {
+                  rb.velocity = vel;
+                //rb.velocity = new Vector2(horizontal * walkSpeed, rb.velocity.y);
+            }
         }
+        
+    }
+
+    // EFEITO REPULSÃO
+    public void KnockBack(Vector3 enemyPosition)
+    {
+        // Determina a direção do knockback com base na posição do inimigo
+        float direction = transform.position.x < enemyPosition.x ? -1 : 1;
+
+        // Aplica a força do knockback na direção oposta ao inimigo
+        rb.velocity = new Vector2(direction * kbForce, rb.velocity.y);
+
+        // Ativa o estado de knockback
+        isKnockedBack = true;
+        Invoke("EndKnockback", knockbackDuration);
+    }
+
+    private void EndKnockback()
+    {
+        isKnockedBack = false;
     }
 
     // MOVIMENTO
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }
-    }
     private void Movement()
     {
-        //vel = new Vector2(Input.GetAxisRaw("Horizontal")*walkSpeed, rb.velocity.y);
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (!isKnockedBack)
         {
-            //skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
-            skin.GetComponent<Animator>().SetBool("PlayerRun", true);
+            vel = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, rb.velocity.y);
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
+                skin.GetComponent<Animator>().SetBool("PlayerRun", true);
+            }
+            else
+            {
+                skin.GetComponent<Animator>().SetBool("PlayerRun", false);
+            }
         }
-        else
-        {
-            skin.GetComponent<Animator>().SetBool("PlayerRun", false);
-        }
+        
     }
     
     // DASH
@@ -98,8 +119,16 @@ public class PlayerController : MonoBehaviour
             skin.GetComponent<Animator>().Play("PlayerDash", -1);
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(skin.localScale.x * 200, 0));
+            rb.gravityScale = 0;
+            Invoke("RestoreGravityScale", 0.25f);
         }
     }
+
+
+    void RestoreGravityScale()
+    {
+        rb.gravityScale = 1;
+    } //RESTAURA GRAVIDADE
 
     // PULO
     private void Jump()
@@ -142,6 +171,8 @@ public class PlayerController : MonoBehaviour
             if (numCombo > 3) numCombo = 1;
             comboTime = 0;
             skin.GetComponent<Animator>().Play("PlayerAttack" + numCombo, -1);
+            onAttack = true;
+
         }
         if (comboTime >= 1)
         {
@@ -156,6 +187,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && canJump)
             {
+                onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkHp", -1);
                 this.GetComponent<Character>().HpHeal(5);
                 hpPotCount--;
@@ -167,6 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha2) && canJump)
             {
+                onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkMp", -1);
                 this.GetComponent<Character>().MpHeal(5);
                 mpPotCount--;
@@ -184,8 +217,8 @@ public class PlayerController : MonoBehaviour
             handlingObj = 1;
         }
 
-        // BOTÃO 3 HOLY BOLT
         spellTime = spellTime + Time.deltaTime;
+        // BOTÃO 3 HOLY BOLT
         if (handlingObj == 0)
         {
             if (this.GetComponent<Character>().mana > 0)
@@ -194,6 +227,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (spellTime >= 1)
                     {
+                        onAttack = true;
                         skin.GetComponent<Animator>().Play("HolyBolt", -1);
                         this.GetComponent<Character>().MpDecrease(1);
                         spellTime = 0;
@@ -206,12 +240,13 @@ public class PlayerController : MonoBehaviour
         // BOTÃO 4 HOLY SLASH
         if (handlingObj == 1)
         {
-            if (this.GetComponent<Character>().mana > 0)
+            if (this.GetComponent<Character>().mana > 1 && canJump)
             {
                 if (Input.GetButtonDown("Fire3"))
                 {
                     if (spellTime >= 1)
                     {
+                        onAttack = true;
                         holySlash = true;
                         skin.GetComponent<Animator>().Play("PlayerHolySlash", -1);
                         this.GetComponent<Character>().MpDecrease(2);
@@ -219,7 +254,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 
