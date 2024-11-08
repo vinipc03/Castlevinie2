@@ -41,8 +41,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         maxHpPotCount = 3;
         maxMpPotCount = 3;
-        hpPotCount = 3;
-        mpPotCount = 3;
     }
 
     // Update is called once per frame
@@ -189,6 +187,7 @@ public class PlayerController : MonoBehaviour
             {
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkHp", -1);
+                skin.GetComponent<Animator>().Play("PlayerHpHeal", 1);
                 this.GetComponent<Character>().HpHeal(5);
                 hpPotCount--;
             }
@@ -201,6 +200,7 @@ public class PlayerController : MonoBehaviour
             {
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkMp", -1);
+                skin.GetComponent<Animator>().Play("PlayerMpHeal", 1);
                 this.GetComponent<Character>().MpHeal(5);
                 mpPotCount--;
             }

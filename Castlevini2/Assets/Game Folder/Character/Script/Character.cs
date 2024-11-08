@@ -47,8 +47,6 @@ public class Character : MonoBehaviour
 
     }
 
-    
-
     public void MpDecrease(int value)
     {
         mana = mana - value;
