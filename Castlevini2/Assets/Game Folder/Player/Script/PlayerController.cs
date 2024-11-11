@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     float dashTime;
     public float kbForce;
     private bool isKnockedBack = false;
-    private float knockbackDuration = 0.5f;
+    private float knockbackDuration = 1f;
 
 
     [Header("Combat")]
