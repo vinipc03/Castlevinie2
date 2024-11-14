@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!onAttack && !isKnockedBack && !isBloking)
+        if (!onAttack && !isKnockedBack && !isBloking) 
         {
             if (dashTime > 0.5)
             {
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
             jumpTime = 0;
             skin.GetComponent<Animator>().SetBool("Jump", true);
             rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(0, 300));
+            rb.AddForce(new Vector2(0, 400));
         }
 
         skin.GetComponent<Animator>().SetBool("Jump", !canJump);
