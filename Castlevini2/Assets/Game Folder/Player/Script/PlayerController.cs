@@ -34,7 +34,9 @@ public class PlayerController : MonoBehaviour
     float comboTime;
     float spellTime;
     [HideInInspector] public bool onAttack;
-    
+    [HideInInspector] public bool isBloking = false;
+    public float blockTimeCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Block();
         Movement();
         Jump();
         Habilities();
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!onAttack && !isKnockedBack)
+        if (!onAttack && !isKnockedBack && !isBloking)
         {
             if (dashTime > 0.5)
             {
@@ -67,6 +70,23 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    private void Block()
+    {
+        blockTimeCount += Time.deltaTime;
+        if(blockTimeCount > 3)
+        {
+            blockTimeCount = 3;
+        }
+        if(isBloking == false && blockTimeCount > 2 && Input.GetKeyDown(KeyCode.L))
+        {
+            isBloking = true;
+            skin.GetComponent<Animator>().SetBool("Defend", true);
+            skin.GetComponent<Animator>().SetBool("PlayerRun", false);
+            //skin.GetComponent<Animator>().Play("PlayerBloking", -1);
+            blockTimeCount = 0;
+        }
     }
 
     // EFEITO REPULSÃO
@@ -91,7 +111,7 @@ public class PlayerController : MonoBehaviour
     // MOVIMENTO
     private void Movement()
     {
-        if (!isKnockedBack)
+        if (!isKnockedBack && !isBloking)
         {
             vel = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, rb.velocity.y);
             if (Input.GetAxisRaw("Horizontal") != 0)
@@ -121,7 +141,6 @@ public class PlayerController : MonoBehaviour
             Invoke("RestoreGravityScale", 0.25f);
         }
     }
-
 
     void RestoreGravityScale()
     {

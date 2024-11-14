@@ -14,19 +14,18 @@ public class HolyBoltScript : MonoBehaviour
         rb.velocity = transform.right * speed;
         Destroy(this.gameObject, 5f);
     }
-    private void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Destroy(impactEffect, 1f);
         Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(this.gameObject);
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Character>().PlayerDamage(2);           
+            collision.GetComponent<Character>().PlayerDamage(2);
+            Debug.Log("Era para dar dano");
         }
+        
     }
 }

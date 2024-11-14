@@ -24,4 +24,10 @@ public class Skin : MonoBehaviour
         player.GetComponent<PlayerController>().onAttack = false;
     }
 
+    public void FinishBlock()
+    {
+        player.GetComponent<PlayerController>().isBloking = false;
+        this.GetComponent<Animator>().SetBool("Defend", false);
+    }
+
 }

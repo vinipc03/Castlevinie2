@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public LifeController lifeBar;
     public ManaController manaBar;
     public float kbForce;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Character : MonoBehaviour
         lifeBar.setMaxLife(life);
         maxMana = mana;
         manaBar.setMaxMana(mana);
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,13 @@ public class Character : MonoBehaviour
 
     public void PlayerDamage(int value)
     {
+        if (playerController != null && playerController.isBloking == true)
+        {
+            skin.GetComponent<Animator>().Play("PlayerBlocked", -1);
+            skin.GetComponent<Animator>().SetBool("Defend", false);
+            playerController.GetComponent<PlayerController>().isBloking = false;
+            return;
+        }
         life = life - value;
         skin.GetComponent<Animator>().Play("TakeHit", -1);
         lifeBar.SetLife(life);

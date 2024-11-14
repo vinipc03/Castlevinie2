@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkeletonThrowerController : MonoBehaviour
 {
-    public float visionRadius = 10f; // Raio de visão do inimigo
+    public float visionRadius = 8f; // Raio de visão do inimigo
     private float timer;
 
     public Transform skin;
