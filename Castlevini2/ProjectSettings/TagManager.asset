@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Enemy
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX

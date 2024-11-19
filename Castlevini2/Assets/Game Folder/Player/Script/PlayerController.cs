@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector2 vel;
-
+    private Vector2 position;
+    private Vector2 colliderSize;
+    private CapsuleCollider2D playerCollider;
     public Transform skin;
     public Transform floorCollider;
     public LayerMask floorLayer;
@@ -15,17 +17,27 @@ public class PlayerController : MonoBehaviour
     [Header("Potions")]
     public int hpPotCount;
     public int mpPotCount;
-    public int maxHpPotCount;
-    public int maxMpPotCount;
+    [HideInInspector] public int maxHpPotCount;
+    [HideInInspector] public int maxMpPotCount;
 
-    [Header("Movement")]
-    [HideInInspector] public bool canJump;
+    [Header("Movements")]
     public float walkSpeed;
+    [HideInInspector] public bool canJump;
+    public float jumpForce;
     float jumpTime;
     float dashTime;
     public float kbForce;
     private bool isKnockedBack = false;
-    private float knockbackDuration = 1f;
+    private float knockbackDuration = 0.5f;
+
+
+    [Header("Slopes")]
+    [SerializeField] private float slopeCheckDistance;
+    private float slopeAngle;
+    private bool isOnSlope;
+    [SerializeField] private PhysicsMaterial2D noFrictionMaterial;
+    [SerializeField] private PhysicsMaterial2D frictionMaterial;
+    private Vector2 perpendicularSpeed;
 
 
     [Header("Combat")]
@@ -34,8 +46,6 @@ public class PlayerController : MonoBehaviour
     float comboTime;
     float spellTime;
     [HideInInspector] public bool onAttack;
-    [HideInInspector] public bool isBloking = false;
-    public float blockTimeCount;
 
     // Start is called before the first frame update
     void Start()
@@ -48,45 +58,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Block();
-        Movement();
+        position = transform.position - new Vector3(0f, colliderSize.y / 2, 0f);
+        DetectSlopes();
+        if (!onAttack && !isKnockedBack)
+        {
+            Movement();
+        }
         Jump();
         Habilities();
-        Attack();
         Dash();
+        Attack();
         Death();
         skin.GetComponent<Animator>().SetFloat("yVelocity", rb.velocity.y);
-        
     }
 
     private void FixedUpdate()
     {
-        if (!onAttack && !isKnockedBack && !isBloking) 
-        {
-            if (dashTime > 0.5)
-            {
-                  rb.velocity = vel;
-                //rb.velocity = new Vector2(horizontal * walkSpeed, rb.velocity.y);
-            }
-        }
         
-    }
+        if (dashTime > 0.5)
+        {
+            rb.velocity = vel;
+        }
 
-    private void Block()
-    {
-        blockTimeCount += Time.deltaTime;
-        if(blockTimeCount > 3)
-        {
-            blockTimeCount = 3;
-        }
-        if(isBloking == false && blockTimeCount > 2 && Input.GetKeyDown(KeyCode.L))
-        {
-            isBloking = true;
-            skin.GetComponent<Animator>().SetBool("Defend", true);
-            skin.GetComponent<Animator>().SetBool("PlayerRun", false);
-            //skin.GetComponent<Animator>().Play("PlayerBloking", -1);
-            blockTimeCount = 0;
-        }
     }
 
     // EFEITO REPULSÃO
@@ -111,20 +104,36 @@ public class PlayerController : MonoBehaviour
     // MOVIMENTO
     private void Movement()
     {
-        if (!isKnockedBack && !isBloking)
+        vel = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, rb.velocity.y);
+        if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            vel = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, rb.velocity.y);
-            if (Input.GetAxisRaw("Horizontal") != 0)
-            {
-                skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
-                skin.GetComponent<Animator>().SetBool("PlayerRun", true);
-            }
-            else
-            {
-                skin.GetComponent<Animator>().SetBool("PlayerRun", false);
-            }
+            skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
+            skin.GetComponent<Animator>().SetBool("PlayerRun", true);
         }
-        
+        else
+        {
+            skin.GetComponent<Animator>().SetBool("PlayerRun", false);
+        }
+    }
+
+    private void DetectSlopes()
+    {
+        RaycastHit2D hitSlope = Physics2D.Raycast(this.position, Vector2.down, slopeCheckDistance, floorLayer);
+        if (hitSlope)
+        {
+            //perpendicularSpeed = Vector2.Perpendicular(hitSlope.normal).normalized;
+            slopeAngle = Vector2.Angle(hitSlope.normal, Vector2.up);
+            isOnSlope = slopeAngle != 0;
+        }
+
+        if (isOnSlope && Input.GetAxisRaw("Horizontal") == 0)
+        {
+            rb.sharedMaterial = frictionMaterial;
+        }
+        else
+        {
+            rb.sharedMaterial = noFrictionMaterial;
+        }
     }
     
     // DASH
@@ -144,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
     void RestoreGravityScale()
     {
-        rb.gravityScale = 1;
+        rb.gravityScale = 2;
     } //RESTAURA GRAVIDADE
 
     // PULO
@@ -157,11 +166,9 @@ public class PlayerController : MonoBehaviour
             jumpTime = 0;
             skin.GetComponent<Animator>().SetBool("Jump", true);
             rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(0, 400));
+            rb.AddForce(new Vector2(0, jumpForce));
         }
-
         skin.GetComponent<Animator>().SetBool("Jump", !canJump);
-
     }
 
     // ATAQUES

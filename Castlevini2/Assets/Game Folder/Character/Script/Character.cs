@@ -43,13 +43,13 @@ public class Character : MonoBehaviour
 
     public void PlayerDamage(int value)
     {
-        if (playerController != null && playerController.isBloking == true)
-        {
-            skin.GetComponent<Animator>().Play("PlayerBlocked", -1);
-            skin.GetComponent<Animator>().SetBool("Defend", false);
-            playerController.GetComponent<PlayerController>().isBloking = false;
-            return;
-        }
+        //if (playerController != null && playerController.isBloking == true)
+        //{
+        //    skin.GetComponent<Animator>().Play("PlayerBlocked", -1);
+        //    skin.GetComponent<Animator>().SetBool("Defend", false);
+        //    playerController.GetComponent<PlayerController>().isBloking = false;
+        //    return;
+        //} ctrl+k+u para voltar
         life = life - value;
         skin.GetComponent<Animator>().Play("TakeHit", -1);
         lifeBar.SetLife(life);

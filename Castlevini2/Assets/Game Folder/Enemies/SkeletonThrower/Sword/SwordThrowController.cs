@@ -27,6 +27,7 @@ public class SwordThrowController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Character>().PlayerDamage(1);
+            collision.GetComponent<PlayerController>().KnockBack(transform.position);
             Destroy(this.gameObject);
         }
         
