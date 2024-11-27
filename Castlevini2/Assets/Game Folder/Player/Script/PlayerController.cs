@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     private bool isOnSlope;
     [SerializeField] private PhysicsMaterial2D noFrictionMaterial;
     [SerializeField] private PhysicsMaterial2D frictionMaterial;
-    private Vector2 perpendicularSpeed;
 
 
     [Header("Combat")]
@@ -169,7 +168,7 @@ public class PlayerController : MonoBehaviour
     // PULO
     private void Jump()
     {
-        canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
+        canJump = Physics2D.OverlapCircle(this.transform.position, 0.3f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
         if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1f)
         {
@@ -258,6 +257,11 @@ public class PlayerController : MonoBehaviour
             handlingObj = 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            handlingObj = 2;
+        }
+
         spellTime = spellTime + Time.deltaTime;
         // BOTÃO 3 HOLY BOLT
         if (handlingObj == 0)
@@ -296,6 +300,24 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        // BOTÃO HOLY EXPLOSION
+        if (handlingObj == 2)
+        {
+            if (this.GetComponent<Character>().mana > 2 && canJump)
+            {
+                if (Input.GetButtonDown("Fire3"))
+                {
+                    if (spellTime >= 1)
+                    {
+                        onAttack = true;
+                        skin.GetComponent<Animator>().Play("PlayerHolyExplosion", -1);
+                        this.GetComponent<Character>().MpDecrease(3);
+                        spellTime = 0;
+                    }
+                }
+            }
+        }
     }
 
     // MORTE
@@ -311,6 +333,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
+        Gizmos.DrawWireSphere(floorCollider.position, 0.3f);
     }
 }

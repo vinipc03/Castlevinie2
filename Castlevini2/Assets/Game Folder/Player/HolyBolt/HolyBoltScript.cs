@@ -24,7 +24,6 @@ public class HolyBoltScript : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Character>().PlayerDamage(2);
-            Debug.Log("Era para dar dano");
         }
         
     }
