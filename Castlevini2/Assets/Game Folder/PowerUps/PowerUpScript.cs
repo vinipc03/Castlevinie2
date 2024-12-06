@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour
 {
+    private Rigidbody2D itemRb;
+    public float dropForce = 5;
     public int hpPot;
     public int mpPot;
     public int hpHeal;
     public int mpHeal;
+
+    private void Start()
+    {
+        itemRb = GetComponent<Rigidbody2D>();
+        itemRb.AddForce(Vector2.up * dropForce, ForceMode2D.Impulse);
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         canJump = Physics2D.OverlapCircle(this.transform.position, 0.3f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
-        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 1f)
+        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 0.5f)
         {
             jumpTime = 0;
             skin.GetComponent<Animator>().SetBool("Jump", true);
