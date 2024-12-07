@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8197307102682467449}
   - component: {fileID: 1786847648781834436}
   - component: {fileID: 5277950101764200957}
+  - component: {fileID: 2428496876272083153}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4733117316381284529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.19315, y: -0.44974294, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.71929, y: 0.71929, z: 0.71929}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1174004515073196339, guid: cceba5be52c6e264eb9e397b7821fe0c, type: 3}
+  m_SortingLayerID: 1921241677
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -7066647530778836694, guid: f10b9502e64d96b44bfb85f061131336, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa98d72dcc46c84ba2c214827c525cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropForce: 5
   hpPot: 0
   mpPot: 0
   hpHeal: 1
@@ -113,6 +115,27 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.046630085}
+  m_Offset: {x: 0, y: -0.0030100644}
   serializedVersion: 2
-  m_Radius: 0.20336992
+  m_Radius: 0.28333983
+--- !u!50 &2428496876272083153
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733117316381284529}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
