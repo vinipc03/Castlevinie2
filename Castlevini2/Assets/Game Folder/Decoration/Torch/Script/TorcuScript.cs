@@ -5,6 +5,7 @@ using UnityEngine;
 public class TorcuScript : MonoBehaviour
 {
     public Transform torchPrefab;
+    public GameObject brokeAnimation;
 
     [System.Serializable]
     public class DropItem
@@ -17,11 +18,8 @@ public class TorcuScript : MonoBehaviour
 
     public void Break()
     {
-        torchPrefab.GetComponent<Animator>().Play("Broke", -1);
-
         // Espera o tempo da animação antes de destruir o objeto
-        float animationDuration = torchPrefab.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-        Destroy(gameObject, animationDuration);
+        Instantiate(brokeAnimation, transform.position, Quaternion.identity);
         // Destroi o objeto
         Destroy(gameObject);
         
@@ -46,7 +44,6 @@ public class TorcuScript : MonoBehaviour
     {
         if (collision.CompareTag("PlayerAttack"))
         {
-            
             Break();
         }
     }

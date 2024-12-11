@@ -28,15 +28,13 @@ public class SkeletonThrowerController : MonoBehaviour
         
     }
 
-    
-
     void AggroVision()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
         if (distance < visionRadius)
         {
-            if(distance < 2.5f && timer >2)
+            if(distance < 2.5f && timer >1.5f)
             {
                 timer = 0;
                 skin.GetComponent<Animator>().Play("AttackMelee", -1);

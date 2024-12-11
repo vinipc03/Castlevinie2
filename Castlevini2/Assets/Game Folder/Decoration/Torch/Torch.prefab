@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torchPrefab: {fileID: 5456409509589081288}
+  brokeAnimation: {fileID: 8453707882229160937, guid: 07ec9e38a6b505f498f98b767e306e67, type: 3}
   possibleDrops:
   - itemPrefab: {fileID: 7428164530772657579, guid: 3f45ca8e830b88d42a2659990edfdb57, type: 3}
     dropChance: 10

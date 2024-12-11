@@ -12,7 +12,7 @@ public class HolyBoltScript : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 3f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,9 +20,10 @@ public class HolyBoltScript : MonoBehaviour
         
         Destroy(impactEffect, 1f);
         Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(this.gameObject);
+        
         if (collision.CompareTag("Enemy"))
         {
+            Destroy(this.gameObject);
             collision.GetComponent<Character>().PlayerDamage(2);
         }
         

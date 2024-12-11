@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackCollider : MonoBehaviour
 {
     public Transform player;
+    public GameObject impactEffect;
     private float horizontal;
     [HideInInspector] private bool isFacingRight = true;
 
@@ -29,22 +30,30 @@ public class AttackCollider : MonoBehaviour
             {
                 collision.GetComponent<Character>().life--;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
+                Destroy(impactEffect, 1f);
+                Instantiate(impactEffect, transform.position, transform.rotation);
             }
             if (player.GetComponent<PlayerController>().numCombo == 2)
             {
                 collision.GetComponent<Character>().life -= 1;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
+                Destroy(impactEffect, 1f);
+                Instantiate(impactEffect, transform.position, transform.rotation);
             }
             if (player.GetComponent<PlayerController>().numCombo == 3)
             {
                 collision.GetComponent<Character>().life -= 2;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
+                Destroy(impactEffect, 1f);
+                Instantiate(impactEffect, transform.position, transform.rotation);
             }
             if (player.GetComponent<PlayerController>().handlingObj == 1 && player.GetComponent<PlayerController>().holySlash == true)
             {
                 collision.GetComponent<Character>().life -= 5;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
                 player.GetComponent<PlayerController>().holySlash = false;
+                Destroy(impactEffect, 1f);
+                Instantiate(impactEffect, transform.position, transform.rotation);
             }
         }
     }

@@ -195,12 +195,12 @@ public class PlayerController : MonoBehaviour
             }
             comboTime = 0;
             //rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(0, 50));
+            rb.AddForce(new Vector2(0, 100));
             skin.GetComponent<Animator>().Play("PlayerJumpAttack2", -1);
         }
 
         // ATAQUE NO CHÃO
-        if (Input.GetButtonDown("Fire1") && comboTime > 0.5f)
+        if (Input.GetButtonDown("Fire1") && comboTime > 0.3f)
         {
             onAttack = true;
             numCombo++;
@@ -211,10 +211,6 @@ public class PlayerController : MonoBehaviour
         if (comboTime >= 1)
         {
             numCombo = 0;
-        }
-        if(onAttack == true)
-        {
-            Debug.Log("onAttack retornou para false");
         }
     }
 

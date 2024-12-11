@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1786847648781834436}
   - component: {fileID: 5277950101764200957}
   - component: {fileID: 2428496876272083153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa98d72dcc46c84ba2c214827c525cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  layerName: TilemapFront
   dropForce: 5
   hpPot: 0
   mpPot: 0
