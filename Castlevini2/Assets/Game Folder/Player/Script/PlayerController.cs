@@ -300,7 +300,7 @@ public class PlayerController : MonoBehaviour
         // BOTÃO HOLY EXPLOSION
         if (handlingObj == 2)
         {
-            if (this.GetComponent<Character>().mana > 2 && canJump)
+            if (this.GetComponent<Character>().mana > 0 && canJump)
             {
                 if (Input.GetButtonDown("Fire3"))
                 {
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
                     {
                         onAttack = true;
                         skin.GetComponent<Animator>().Play("PlayerHolyExplosion", -1);
-                        this.GetComponent<Character>().MpDecrease(3);
+                        this.GetComponent<Character>().MpDecrease(1);
                         spellTime = 0;
                     }
                 }

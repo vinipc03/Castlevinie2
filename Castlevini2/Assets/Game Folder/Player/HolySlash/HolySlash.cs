@@ -17,8 +17,6 @@ public class HolySlash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Destroy(impactEffect, 1f);
         Instantiate(impactEffect, transform.position, transform.rotation);
 
         if (collision.CompareTag("Enemy"))
