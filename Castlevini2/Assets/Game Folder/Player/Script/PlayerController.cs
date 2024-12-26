@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class PlayerController : MonoBehaviour
     Vector2 vel;
     private Vector2 position;
     private Vector2 colliderSize;
-    private CapsuleCollider2D playerCollider;
     public Transform skin;
     public Transform floorCollider;
     public LayerMask floorLayer;
     [HideInInspector] public int handlingObj;
+
+    public string currentLevel;
 
     [Header("Potions")]
     public int hpPotCount;
@@ -52,11 +54,19 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         maxHpPotCount = 3;
         maxMpPotCount = 3;
+        currentLevel = SceneManager.GetActiveScene().name;
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!currentLevel.Equals(SceneManager.GetActiveScene().name))
+        {
+            currentLevel = SceneManager.GetActiveScene().name;
+            transform.position = GameObject.Find("Spawn").transform.position;
+        }
+
         DetectSlopes();
         Movement();
         Jump();
@@ -64,6 +74,7 @@ public class PlayerController : MonoBehaviour
         Dash();
         Attack();
         Death();
+        PotionControl();
         skin.GetComponent<Animator>().SetFloat("yVelocity", rb.velocity.y);
         position = transform.position - new Vector3(0f, colliderSize.y / 2, 0f);
     }
@@ -224,7 +235,7 @@ public class PlayerController : MonoBehaviour
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkHp", -1);
                 skin.GetComponent<Animator>().Play("PlayerHpHeal", 1);
-                this.GetComponent<Character>().HpHeal(5);
+                this.GetComponent<Character>().HpHeal(3);
                 hpPotCount--;
             }
         }
@@ -237,7 +248,7 @@ public class PlayerController : MonoBehaviour
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkMp", -1);
                 skin.GetComponent<Animator>().Play("PlayerMpHeal", 1);
-                this.GetComponent<Character>().MpHeal(5);
+                this.GetComponent<Character>().MpHeal(3);
                 mpPotCount--;
             }
         }
@@ -326,7 +337,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PotionControl()
+    {
+        if(hpPotCount > maxHpPotCount)
+        {
+            hpPotCount = maxHpPotCount;
+        }
 
+        if(mpPotCount > maxMpPotCount)
+        {
+            mpPotCount = maxMpPotCount;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(floorCollider.position, 0.3f);
