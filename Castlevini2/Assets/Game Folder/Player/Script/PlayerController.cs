@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
     [HideInInspector] public int handlingObj;
 
+
+    public Transform gameOverScreen;
+    public Transform pauseScreen;
+    [HideInInspector] public bool isPaused = false;
     public string currentLevel;
 
     [Header("Potions")]
@@ -67,6 +71,9 @@ public class PlayerController : MonoBehaviour
             transform.position = GameObject.Find("Spawn").transform.position;
         }
 
+        if (isPaused) return;
+
+        Pause();
         DetectSlopes();
         Movement();
         Jump();
@@ -332,6 +339,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GetComponent<Character>().life <= 0)
         {
+            gameOverScreen.GetComponent<GameOver>().enabled = true;
             this.enabled = false;
             rb.simulated = false;
         }
@@ -348,6 +356,24 @@ public class PlayerController : MonoBehaviour
         {
             mpPotCount = maxMpPotCount;
         }
+    }
+
+    private void Pause()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            pauseScreen.GetComponent<Pause>().enabled = !pauseScreen.GetComponent<Pause>().enabled;
+        }
+    }
+
+    public void ReturnToGame()
+    {
+        pauseScreen.GetComponent<Pause>().enabled = !pauseScreen.GetComponent<Pause>().enabled;
+    }
+
+    public void DestroyPlayer()
+    {
+        Destroy(transform.gameObject);
     }
     private void OnDrawGizmosSelected()
     {
