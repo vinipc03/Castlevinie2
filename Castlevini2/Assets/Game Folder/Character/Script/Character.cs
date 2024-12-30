@@ -19,10 +19,13 @@ public class Character : MonoBehaviour
     void Start()
     {
         maxLife = life;
-        lifeBar.setMaxLife(life);
         maxMana = mana;
-        manaBar.setMaxMana(mana);
         playerController = GetComponent<PlayerController>();
+        if (transform.CompareTag("Player"))
+        {
+            lifeBar.setMaxLife(life);
+            manaBar.setMaxMana(mana);
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class Character : MonoBehaviour
         life = life - value;
         skin.GetComponent<Animator>().Play("TakeHit", -1);
         lifeBar.SetLife(life);
+        GetComponent<PlayerController>().audioSource.PlayOneShot(GetComponent<PlayerController>().takeDamageSound, 0.4f);
 
     }
 
@@ -57,12 +61,14 @@ public class Character : MonoBehaviour
 
     public void HpHeal(int value)
     {
+        GetComponent<PlayerController>().audioSource.PlayOneShot(GetComponent<PlayerController>().powerUpSound, 0.2f);
         life = life + value;
         lifeBar.SetLife(life);
     }
 
     public void MpHeal(int value)
     {
+        GetComponent<PlayerController>().audioSource.PlayOneShot(GetComponent<PlayerController>().powerUpSound, 0.2f);
         mana = mana + value;
         manaBar.SetMana(mana);
     }

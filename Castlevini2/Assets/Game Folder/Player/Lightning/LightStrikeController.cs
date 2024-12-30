@@ -6,6 +6,8 @@ public class LightStrikeController : MonoBehaviour
 {
     public Transform attackCollider;
     public GameObject lightStrikePrefab;
+    public AudioSource audioSource;
+    public AudioClip lightStrikeSound;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class LightStrikeController : MonoBehaviour
     public void LightStrike()
     {
         // ATIRAR HOLY BOLT
+        audioSource.PlayOneShot(lightStrikeSound, 0.5f);
         Instantiate(lightStrikePrefab, attackCollider.position, attackCollider.rotation);
     }
 }

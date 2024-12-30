@@ -47,14 +47,6 @@ public class AttackCollider : MonoBehaviour
                 Destroy(impactEffect, 1f);
                 Instantiate(impactEffect, transform.position, transform.rotation);
             }
-            //if (player.GetComponent<PlayerController>().handlingObj == 1 && player.GetComponent<PlayerController>().holySlash == true)
-            //{
-            //    collision.GetComponent<Character>().life -= 5;
-            //    collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
-            //    player.GetComponent<PlayerController>().holySlash = false;
-            //    Destroy(impactEffect, 1f);
-            //    Instantiate(impactEffect, transform.position, transform.rotation);
-            //}
         }
     }
 

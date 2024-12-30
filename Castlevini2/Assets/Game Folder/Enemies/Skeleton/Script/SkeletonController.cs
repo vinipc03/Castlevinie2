@@ -8,9 +8,10 @@ public class SkeletonController : MonoBehaviour
     public Transform b;
 
     public Transform skin;
-
     public bool goLeft;
 
+    public AudioSource audioSource;
+    public AudioClip dieSound;
     
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class SkeletonController : MonoBehaviour
     {
         if (GetComponent<Character>().life <= 0)
         {
+            audioSource.PlayOneShot(dieSound, 0.3f);
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
         }

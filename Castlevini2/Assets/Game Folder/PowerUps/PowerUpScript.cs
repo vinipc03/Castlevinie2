@@ -21,6 +21,10 @@ public class PowerUpScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        PlayerController playerController = collision.GetComponent<PlayerController>();
+
+        // PARA NO TILE FLOOR
         if (collision.CompareTag("Floor"))
         {
             // Para o movimento após cair no chão
@@ -28,6 +32,7 @@ public class PowerUpScript : MonoBehaviour
             itemRb.isKinematic = true; // Desativa física
         }
 
+        // PARA EM ONE WAY PLATFORMS
         if (collision.gameObject.layer == LayerMask.NameToLayer(layerName))
         {
             // Para o movimento após cair no chão
@@ -37,33 +42,44 @@ public class PowerUpScript : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            // POÇÃO DE VIDA
-            collision.GetComponent<PlayerController>().hpPotCount += hpPot;
 
-            // POÇÃO DE MANA
-            collision.GetComponent<PlayerController>().mpPotCount += mpPot;
-
-            // FRANGO
-            if(hpHeal > 0)
+            if (playerController != null)
             {
-                collision.GetComponent<Character>().HpHeal(hpHeal);
-                collision.GetComponentInChildren<Animator>().Play("PlayerHpHeal", 1);
-            }
+                // POÇÃO DE VIDA
+                if (hpPot >= 1)
+                {
+                    playerController.hpPotCount += hpPot;
+                }
 
-            // MAÇA
-            if(mpHeal > 0)
-            {
-                collision.GetComponent<Character>().MpHeal(mpHeal);
-                collision.GetComponentInChildren<Animator>().Play("PlayerMpHeal", 1);
-            }
+                // POÇÃO DE MANA
+                if (mpPot >= 1)
+                {
+                    playerController.mpPotCount += mpPot;
+                }
 
-            Destroy(this.gameObject);
+                // TOCA O SOM
+                if (playerController.audioSource != null && playerController.powerUpSound != null)
+                {
+                    playerController.audioSource.PlayOneShot(playerController.powerUpSound, 0.3f);
+                }
+
+
+                // FRANGO
+                if (hpHeal > 0)
+                {
+                    collision.GetComponent<Character>().HpHeal(hpHeal);
+                    collision.GetComponentInChildren<Animator>().Play("PlayerHpHeal", 1);
+                }
+
+                // MAÇA
+                if (mpHeal > 0)
+                {
+                    collision.GetComponent<Character>().MpHeal(mpHeal);
+                    collision.GetComponentInChildren<Animator>().Play("PlayerMpHeal", 1);
+                }
+
+                Destroy(this.gameObject);
+            }
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
 }

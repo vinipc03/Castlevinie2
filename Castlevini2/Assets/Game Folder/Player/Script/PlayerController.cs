@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
     [HideInInspector] public int handlingObj;
 
-
     public Transform gameOverScreen;
     public Transform pauseScreen;
     [HideInInspector] public bool isPaused = false;
@@ -50,11 +49,25 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool holySlash;
     float comboTime;
     float spellTime;
+    float potTime = 0;
     [HideInInspector] public bool onAttack = false;
+
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip attack1Sound;
+    public AudioClip attack2Sound;
+    public AudioClip attack3Sound;
+    public AudioClip takeDamageSound;
+    public AudioClip dashSound;
+    public AudioClip holyBoltSound;
+    public AudioClip holySlashSound;
+    public AudioClip lightStrikeSound;
+    public AudioClip powerUpSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         maxHpPotCount = 3;
         maxMpPotCount = 3;
@@ -169,6 +182,7 @@ public class PlayerController : MonoBehaviour
         dashTime = dashTime + Time.deltaTime;
         if (Input.GetButtonDown("Fire2") && dashTime > 1)
         {
+            audioSource.PlayOneShot(dashSound, 0.4f);
             dashTime = 0;
             skin.GetComponent<Animator>().Play("PlayerDash", -1);
             rb.velocity = Vector2.zero;
@@ -215,6 +229,7 @@ public class PlayerController : MonoBehaviour
             //rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0, 100));
             skin.GetComponent<Animator>().Play("PlayerJumpAttack2", -1);
+            audioSource.PlayOneShot(attack1Sound, 0.4f);
         }
 
         // ATAQUE NO CHÃO
@@ -225,38 +240,57 @@ public class PlayerController : MonoBehaviour
             if (numCombo > 3) numCombo = 1;
             comboTime = 0;
             skin.GetComponent<Animator>().Play("PlayerAttack" + numCombo, -1);
+
+            if (numCombo == 1)
+            {
+                audioSource.PlayOneShot(attack1Sound, 0.4f);
+            }
+
+            if (numCombo == 2)
+            {
+                audioSource.PlayOneShot(attack2Sound, 0.4f);
+            }
+
+            if (numCombo == 3)
+            {
+                audioSource.PlayOneShot(attack3Sound, 0.4f);
+            }
         }
         if (comboTime >= 1)
         {
             numCombo = 0;
         }
+
     }
 
     public void Habilities()
     {
+        potTime = potTime + Time.deltaTime;
         // TECLA 1 POÇÃO DE VIDA
         if (hpPotCount >= 1)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && canJump)
+            if (Input.GetKeyDown(KeyCode.Alpha1) && canJump && potTime > 1)
             {
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkHp", -1);
                 skin.GetComponent<Animator>().Play("PlayerHpHeal", 1);
                 this.GetComponent<Character>().HpHeal(3);
                 hpPotCount--;
+                potTime = 0;
             }
         }
 
         // TECLA 2 POÇÃO DE MANA
         if (mpPotCount >= 1)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2) && canJump)
+            if (Input.GetKeyDown(KeyCode.Alpha2) && canJump && potTime > 1)
             {
                 onAttack = true;
                 skin.GetComponent<Animator>().Play("DrinkMp", -1);
                 skin.GetComponent<Animator>().Play("PlayerMpHeal", 1);
                 this.GetComponent<Character>().MpHeal(3);
                 mpPotCount--;
+                potTime = 0;
             }
         }
 
