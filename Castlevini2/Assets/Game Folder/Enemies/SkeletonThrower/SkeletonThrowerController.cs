@@ -11,6 +11,12 @@ public class SkeletonThrowerController : MonoBehaviour
     private Transform player;
     // Calcula a direção para o jogador
     public float posX;
+    public bool isAttacking = false;
+
+    public AudioSource audioSource;
+    public AudioClip dieSound;
+    public AudioClip attackMelee;
+    public AudioClip attackThrow;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +40,10 @@ public class SkeletonThrowerController : MonoBehaviour
 
         if (distance < visionRadius)
         {
-            if(distance < 2.5f && timer >1.5f)
+            if(distance < 2.5f && timer >2f)
             {
+                isAttacking = true;
+                audioSource.PlayOneShot(attackMelee, 0.5f);
                 timer = 0;
                 skin.GetComponent<Animator>().Play("AttackMelee", -1);
             }
@@ -43,6 +51,7 @@ public class SkeletonThrowerController : MonoBehaviour
             {
                 if (timer > 2)
                 {
+                    audioSource.PlayOneShot(attackThrow, 0.8f);
                     timer = 0;
                     skin.GetComponent<Animator>().Play("AttackThrow", -1);
                 }
@@ -73,20 +82,21 @@ public class SkeletonThrowerController : MonoBehaviour
     {
         if (GetComponent<Character>().life <= 0)
         {
-            //AggroVision().enabled = false;
+            audioSource.PlayOneShot(dieSound, 0.5f);
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            collision.GetComponent<Character>().PlayerDamage(1);
-            collision.GetComponent<PlayerController>().KnockBack(transform.position);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player") && !isAttacking)
+    //    {
+    //        Debug.Log("Causou dano no player encostando no skeleton");
+    //        collision.GetComponent<Character>().PlayerDamage(1);
+    //        collision.GetComponent<PlayerController>().KnockBack(transform.position);
+    //    }
+    //}
 
 
     private void OnDrawGizmosSelected()

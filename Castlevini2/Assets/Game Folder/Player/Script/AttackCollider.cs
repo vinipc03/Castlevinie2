@@ -8,6 +8,8 @@ public class AttackCollider : MonoBehaviour
     public GameObject impactEffect;
     private float horizontal;
     [HideInInspector] private bool isFacingRight = true;
+    public AudioSource audioSource;
+    public AudioClip hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class AttackCollider : MonoBehaviour
         {
             if (player.GetComponent<PlayerController>().numCombo == 1)
             {
+                audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life--;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
                 Destroy(impactEffect, 1f);
@@ -35,6 +38,7 @@ public class AttackCollider : MonoBehaviour
             }
             if (player.GetComponent<PlayerController>().numCombo == 2)
             {
+                audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life -= 1;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
                 Destroy(impactEffect, 1f);
@@ -42,6 +46,7 @@ public class AttackCollider : MonoBehaviour
             }
             if (player.GetComponent<PlayerController>().numCombo == 3)
             {
+                audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life -= 2;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
                 Destroy(impactEffect, 1f);
