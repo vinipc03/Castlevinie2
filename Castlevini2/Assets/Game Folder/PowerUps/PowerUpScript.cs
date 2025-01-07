@@ -60,7 +60,7 @@ public class PowerUpScript : MonoBehaviour
                 // TOCA O SOM
                 if (playerController.audioSource != null && playerController.powerUpSound != null)
                 {
-                    playerController.audioSource.PlayOneShot(playerController.powerUpSound, 0.3f);
+                    playerController.audioSource.PlayOneShot(playerController.powerUpSound, 0.1f);
                 }
 
 

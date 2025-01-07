@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 381cc82d70c54f14fb00e3e3d830361c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.208
+  m_Volume: 0.109
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5106,7 +5106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630882612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.032, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 725103120}
@@ -5727,7 +5727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859497627084453951, guid: 42de8c6dd4c3a6047bc794cd3ea7bb17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.57529294
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 4859497627084453951, guid: 42de8c6dd4c3a6047bc794cd3ea7bb17, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5911,7 +5911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725103117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.19, y: 1.5, z: 10}
+  m_LocalPosition: {x: -6.946, y: 1.41, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 158491281}
@@ -48554,7 +48554,6 @@ GameObject:
   - component: {fileID: 1569587173}
   - component: {fileID: 1569587172}
   - component: {fileID: 1569587175}
-  - component: {fileID: 1569587176}
   - component: {fileID: 1569587177}
   m_Layer: 0
   m_Name: Main Camera
@@ -48622,7 +48621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569587171}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000047683716, y: 1.55, z: -10}
+  m_LocalPosition: {x: 0.00000047683716, y: 1.5500001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 862878763}
@@ -48666,19 +48665,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1569587176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569587171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8841cda27a40764aaf13e79a1040d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxEffect: 5
 --- !u!114 &1569587177
 MonoBehaviour:
   m_ObjectHideFlags: 0

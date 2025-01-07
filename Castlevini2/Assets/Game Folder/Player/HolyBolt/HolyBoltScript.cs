@@ -17,15 +17,11 @@ public class HolyBoltScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        Destroy(impactEffect, 1f);
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        
         if (collision.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
             collision.GetComponent<Character>().PlayerDamage(2);
+            Instantiate(impactEffect, transform.position, transform.rotation);
         }
-        
     }
 }

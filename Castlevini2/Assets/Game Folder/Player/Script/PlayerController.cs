@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
     // PULO
     private void Jump()
     {
-        canJump = Physics2D.OverlapCircle(this.transform.position, 0.3f, floorLayer);
+        canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
         if (Input.GetButtonDown("Jump") && canJump && jumpTime > 0.5f && dashTime > 0.25f)
         {
@@ -411,6 +411,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(floorCollider.position, 0.3f);
+        Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
     }
 }

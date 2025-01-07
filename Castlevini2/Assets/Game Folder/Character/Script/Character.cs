@@ -48,9 +48,12 @@ public class Character : MonoBehaviour
     {
         life = life - value;
         skin.GetComponent<Animator>().Play("TakeHit", -1);
-        lifeBar.SetLife(life);
-        GetComponent<PlayerController>().audioSource.PlayOneShot(GetComponent<PlayerController>().takeDamageSound, 0.4f);
-        GetComponent<PlayerController>().onAttack = false;
+        if (transform.CompareTag("Player"))
+        {
+            GetComponent<PlayerController>().audioSource.PlayOneShot(GetComponent<PlayerController>().takeDamageSound, 0.4f);
+            lifeBar.SetLife(life);
+            GetComponent<PlayerController>().onAttack = false;
+        }
     }
 
     public void MpDecrease(int value)

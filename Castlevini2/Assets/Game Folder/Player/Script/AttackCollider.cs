@@ -33,7 +33,6 @@ public class AttackCollider : MonoBehaviour
                 audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life--;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
-                Destroy(impactEffect, 1f);
                 Instantiate(impactEffect, transform.position, transform.rotation);
             }
             if (player.GetComponent<PlayerController>().numCombo == 2)
@@ -41,7 +40,6 @@ public class AttackCollider : MonoBehaviour
                 audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life -= 1;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
-                Destroy(impactEffect, 1f);
                 Instantiate(impactEffect, transform.position, transform.rotation);
             }
             if (player.GetComponent<PlayerController>().numCombo == 3)
@@ -49,7 +47,6 @@ public class AttackCollider : MonoBehaviour
                 audioSource.PlayOneShot(hitSound, 0.3f);
                 collision.GetComponent<Character>().life -= 2;
                 collision.GetComponentInChildren<Animator>().Play("TakeHit", -1);
-                Destroy(impactEffect, 1f);
                 Instantiate(impactEffect, transform.position, transform.rotation);
             }
         }
