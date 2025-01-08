@@ -12,7 +12,7 @@ public class HolyBoltScript : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 1.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

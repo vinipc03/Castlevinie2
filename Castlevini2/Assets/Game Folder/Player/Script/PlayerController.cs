@@ -28,12 +28,14 @@ public class PlayerController : MonoBehaviour
     [Header("Movements")]
     public float walkSpeed;
     [HideInInspector] public bool canJump;
+    public bool isJumping = false;
     public float jumpForce;
     float jumpTime;
     float dashTime;
     public float kbForce;
     private bool isKnockedBack = false;
     private float knockbackDuration = 0.5f;
+    private float moveInput;
 
 
     [Header("Slopes")]
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnSlope;
     [SerializeField] private PhysicsMaterial2D noFrictionMaterial;
     [SerializeField] private PhysicsMaterial2D frictionMaterial;
+    private Vector2 perpendicularSpeed;
 
 
     [Header("Combat")]
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip holySlashSound;
     public AudioClip lightStrikeSound;
     public AudioClip powerUpSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +101,7 @@ public class PlayerController : MonoBehaviour
         PotionControl();
         skin.GetComponent<Animator>().SetFloat("yVelocity", rb.velocity.y);
         position = transform.position - new Vector3(0f, colliderSize.y / 2, 0f);
+        
     }
 
     private void FixedUpdate()
@@ -112,6 +117,8 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = vel;
             }
         }
+
+        moveInput = Input.GetAxisRaw("Horizontal");
     }
 
     // EFEITO REPULSÃO
@@ -136,10 +143,10 @@ public class PlayerController : MonoBehaviour
     // MOVIMENTO
     private void Movement()
     {
+        vel = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+
         if (!onAttack) // Apenas permite movimento se não estiver atacando
         {
-            vel = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, rb.velocity.y);
-
             if (Input.GetAxisRaw("Horizontal") != 0)
             {
                 skin.localScale = new Vector3(Input.GetAxisRaw("Horizontal"), 1, 1);
@@ -162,8 +169,15 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hitSlope = Physics2D.Raycast(this.position, Vector2.down, slopeCheckDistance, floorLayer);
         if (hitSlope)
         {
+            perpendicularSpeed = Vector2.Perpendicular(hitSlope.normal).normalized;
             slopeAngle = Vector2.Angle(hitSlope.normal, Vector2.up);
             isOnSlope = slopeAngle != 0;
+        }
+
+        if (isOnSlope && Input.GetAxisRaw("Horizontal") != 0)
+        {
+            Vector2 newVelocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+            vel = Vector2.Lerp(rb.velocity, newVelocity, Time.deltaTime * 10f);
         }
 
         if (isOnSlope && Input.GetAxisRaw("Horizontal") == 0)
@@ -183,6 +197,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && dashTime > 1)
         {
             audioSource.PlayOneShot(dashSound, 0.4f);
+            onAttack = false;
             dashTime = 0;
             skin.GetComponent<Animator>().Play("PlayerDash", -1);
             rb.velocity = Vector2.zero;
@@ -202,12 +217,12 @@ public class PlayerController : MonoBehaviour
     {
         canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
-        if (Input.GetButtonDown("Jump") && canJump && jumpTime > 0.5f && dashTime > 0.25f)
+        if (Input.GetButtonDown("Jump") && canJump && dashTime > 0.25f)
         {
-            jumpTime = 0;
             skin.GetComponent<Animator>().SetBool("Jump", true);
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0, jumpForce));
+            //rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
         skin.GetComponent<Animator>().SetBool("Jump", !canJump);
     }
