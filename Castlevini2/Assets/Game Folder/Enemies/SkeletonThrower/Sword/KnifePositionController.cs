@@ -39,7 +39,6 @@ public class KnifePositionController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Causou dano pelo colisor de ataque");
             collision.GetComponent<Character>().PlayerDamage(1);
             collision.GetComponent<PlayerController>().KnockBack(transform.position);
         }
