@@ -16,18 +16,18 @@ MonoBehaviour:
   speakerSprite: {fileID: 0}
   sentence: 
   dialogues:
-  - actorName: 
+  - actorName: Chef
     profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
     sentence:
       portuguese: Nos ajude! A cidade foi invadida por monstros!
-      english: 
-  - actorName: 
-    profile: {fileID: 0}
+      english: Help us! The city was attacked by monters!
+  - actorName: Lina
+    profile: {fileID: 21300000, guid: b79e321d44ee7a64ca718c9ba9e88d13, type: 3}
     sentence:
       portuguese: beleza?
-      english: 
-  - actorName: 
-    profile: {fileID: 0}
+      english: alright?
+  - actorName: Chef
+    profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
     sentence:
       portuguese: Tudo certo!
-      english: 
+      english: everything alright!
