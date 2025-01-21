@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variaveis
+
     Rigidbody2D rb;
     Vector2 vel;
     private Vector2 position;
@@ -21,8 +23,8 @@ public class PlayerController : MonoBehaviour
     public string currentLevel;
 
     [Header("Potions")]
-    public int hpPotCount;
-    public int mpPotCount;
+    [HideInInspector] public int hpPotCount;
+    [HideInInspector] public int mpPotCount;
     [HideInInspector] public int maxHpPotCount;
     [HideInInspector] public int maxMpPotCount;
 
@@ -37,7 +39,17 @@ public class PlayerController : MonoBehaviour
     private bool isKnockedBack = false;
     private float knockbackDuration = 0.5f;
     private float moveInput;
+    private float verticalInput;
     private bool isCrouch = false;
+    [SerializeField] Collider2D standingCollider;
+    [SerializeField] Transform overHeadCollider;
+    [SerializeField] private bool overHeadCheck;
+    public float overHeadRadius;
+    
+    public float slideSpeed;
+    private bool isSliding = false;
+    private float slideTime = 0.7f; // Duração do slide
+    private float slideTimer;      // Temporizador do slide
 
 
     [Header("Slopes")]
@@ -69,6 +81,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip lightStrikeSound;
     public AudioClip powerUpSound;
 
+    #endregion
+
 
     // Start is called before the first frame update
     void Start()
@@ -96,9 +110,12 @@ public class PlayerController : MonoBehaviour
         DetectSlopes();
         Crouch();
         Movement();
-        Jump();
-        Habilities();
-        Dash();
+        if (!isCrouch)
+        {
+            Jump();
+            Habilities();
+            Dash();
+        }
         Attack();
         Death();
         PotionControl();
@@ -109,6 +126,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isSliding)
+        {
+            // Reduz a velocidade gradualmente para simular o efeito de deslizamento
+            rb.velocity = new Vector2(rb.velocity.x * 0.95f, rb.velocity.y);
+
+            // Conta o tempo restante do slide
+            slideTimer -= Time.fixedDeltaTime;
+            if (slideTimer <= 0)
+            {
+                isSliding = false;
+                isCrouch = false;
+            }
+            return; // Impede outras lógicas de movimentação durante o slide
+        }
+
         if (onAttack)
         {
             rb.velocity = new Vector2(0, rb.velocity.y); // Zera apenas o movimento horizontal
@@ -122,6 +154,7 @@ public class PlayerController : MonoBehaviour
         }
 
         moveInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     // EFEITO REPULSÃO
@@ -145,15 +178,42 @@ public class PlayerController : MonoBehaviour
 
     private void Crouch()
     {
-        if(Input.GetKeyDown(KeyCode.S) && canJump)
+        overHeadCheck = Physics2D.OverlapCircle(overHeadCollider.position, overHeadRadius, floorLayer);
+
+        // CONTROLADOR DOS COLLIDERS
+        if (isCrouch || overHeadCheck)
         {
+            standingCollider.enabled = false;
             skin.GetComponent<Animator>().SetBool("isCrouch", true);
-            isCrouch = true;
+        }
+        else
+        {
+            standingCollider.enabled = true;
+            skin.GetComponent<Animator>().SetBool("isCrouch", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.S))
+        // CONTROLADOR DAS TECLAS
+        if(Input.GetAxisRaw("Vertical") < 0 && canJump)
         {
-            skin.GetComponent<Animator>().SetBool("isCrouch", false);
+            //skin.GetComponent<Animator>().SetBool("isCrouch", true);
+            isCrouch = true;
+
+            // SLIDE
+            if (Input.GetButtonDown("Fire2") && !isSliding)
+            {
+                isCrouch = true;
+                isSliding = true;
+                slideTimer = slideTime;
+                audioSource.PlayOneShot(dashSound, 0.4f);
+                skin.GetComponent<Animator>().Play("PlayerSlide", -1);
+
+                // Define a velocidade inicial do slide
+                rb.velocity = new Vector2(skin.localScale.x * slideSpeed, rb.velocity.y);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.S) && !overHeadCheck)
+        {
             isCrouch = false;
         }
     }
@@ -161,7 +221,22 @@ public class PlayerController : MonoBehaviour
     // MOVIMENTO
     private void Movement()
     {
-        vel = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+        if (isSliding)
+        {
+            // Não permite outras movimentações durante o slide
+            return;
+        }
+
+        // Controla movimento apenas se não estiver agachado ou bloqueado
+        if (overHeadCheck || isCrouch)
+        {
+            // Impede movimentação lateral ao agachar
+            vel = new Vector2(0, rb.velocity.y);
+        }
+        else
+        {
+            vel = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+        }
 
         if (!onAttack) // Apenas permite movimento se não estiver atacando
         {
@@ -268,16 +343,21 @@ public class PlayerController : MonoBehaviour
         // ATAQUE CROUCHING
         if(Input.GetButtonDown("Fire1") && comboTime > 0.7f && isCrouch == true)
         {
-            comboTime = 0;
-            numCombo++;
+            //isCrouch = true;
             if (numCombo > 1)
             {
                 numCombo = 1;
             }
+            comboTime = 0;
+            numCombo++;
             skin.GetComponent<Animator>().Play("PlayerCrouchAttack", -1);
             audioSource.PlayOneShot(attack1Sound, 0.4f);
         }
 
+        if (overHeadCheck)
+        {
+            return;
+        }
         // ATAQUE NO CHÃO
         if (Input.GetButtonDown("Fire1") && comboTime > 0.3f && !isCrouch)
         {
@@ -469,5 +549,6 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
+        Gizmos.DrawWireSphere(overHeadCollider.position, overHeadRadius);
     }
 }
