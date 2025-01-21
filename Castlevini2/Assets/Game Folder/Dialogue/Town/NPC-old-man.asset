@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aa13869ca0a814ea7c47110ed19c9a, type: 3}
+  m_Name: NPC-old-man
+  m_EditorClassIdentifier: 
+  actor: {fileID: 6332707765333255882, guid: 0f5c31dc686a83e468075c07ba18f18a, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: Oldman
+    profile: {fileID: 21300000, guid: 4818774f8aecf954f9a7735e5664778f, type: 3}
+    sentence:
+      portuguese: "Oh! Voc\xEA conseguiu me achar, estou cercado por esses malditos
+        e n\xE3o consigo sair daqui."
+      english: Oh! You can find me here, im surrounded by this dawn monsters!
+  - actorName: Oldman
+    profile: {fileID: 21300000, guid: 4818774f8aecf954f9a7735e5664778f, type: 3}
+    sentence:
+      portuguese: "Para atacar inimigos que est\xE3o acima de voc\xEA, use seu raio
+        para atingir eles."
+      english: To attack enemies who stand above you, use your lightning to strike
+        then.
+  - actorName: Lina
+    profile: {fileID: 21300000, guid: b79e321d44ee7a64ca718c9ba9e88d13, type: 3}
+    sentence:
+      portuguese: Pode deixar, eu vou acabar com eles!
+      english: Count on me, i will destroy then.

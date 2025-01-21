@@ -1,7 +1,88 @@
 fileFormatVersion: 2
 guid: ce8a6e84c81ac8c42b338ee89eb3f10f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5082296995524158473
+    second: Crounch_0
+  - first:
+      213: 4316067393112283720
+    second: Crounch_1
+  - first:
+      213: -3998667527497887901
+    second: Crounch_2
+  - first:
+      213: 5118457778850738425
+    second: Crounch_3
+  - first:
+      213: 2690233088389348650
+    second: Crounch_4
+  - first:
+      213: -5937579348687366043
+    second: Crounch_5
+  - first:
+      213: 3643439936524919182
+    second: Crounch_6
+  - first:
+      213: -7658934790102906800
+    second: Crounch_7
+  - first:
+      213: -5512794974522448919
+    second: Crounch_8
+  - first:
+      213: -810659418499141127
+    second: Crounch_9
+  - first:
+      213: -6188550693602561679
+    second: Crounch_10
+  - first:
+      213: 36958346505987257
+    second: Crounch_11
+  - first:
+      213: 2182114157688495957
+    second: Crounch_12
+  - first:
+      213: 5967065959968692937
+    second: Crounch_13
+  - first:
+      213: -3821645079139295354
+    second: Crounch_14
+  - first:
+      213: 6896012414940343049
+    second: Crounch_15
+  - first:
+      213: -1675551191121163513
+    second: Crounch_16
+  - first:
+      213: -3875888917029414040
+    second: Crounch_17
+  - first:
+      213: -57745352078965580
+    second: Crounch_18
+  - first:
+      213: -1566618844348250121
+    second: Crounch_19
+  - first:
+      213: -989088770917378195
+    second: Crounch_0
+  - first:
+      213: 4703163699621899334
+    second: Crounch_1
+  - first:
+      213: 4980675406884567199
+    second: Crounch_2
+  - first:
+      213: 5409153257166715066
+    second: Crounch_3
+  - first:
+      213: 774688560880918407
+    second: Crounch_4
+  - first:
+      213: -6615724858769620426
+    second: Crounch_5
+  - first:
+      213: 101911266441410793
+    second: Crounch_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +113,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +122,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +147,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,7 +180,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Crounch_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d675426d00d0642f0800000000000000
+      internalID: -989088770917378195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ca974677ef44140800000000000000
+      internalID: 4703163699621899334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98f0e0d4e9ee1540800000000000000
+      internalID: 4980675406884567199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8b11d7a3c211b40800000000000000
+      internalID: 5409153257166715066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_4
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f9dd2442f30ca00800000000000000
+      internalID: 774688560880918407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632c055ea493034a0800000000000000
+      internalID: -6615724858769620426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crounch_6
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.53, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8b9d2c1cf0a6100800000000000000
+      internalID: 101911266441410793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

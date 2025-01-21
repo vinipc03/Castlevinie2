@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aa13869ca0a814ea7c47110ed19c9a, type: 3}
+  m_Name: NPC-hati-man
+  m_EditorClassIdentifier: 
+  actor: {fileID: 6094450711044885969, guid: 9fb29aa2af6890a4380c7a7051c529b6, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: Hat man
+    profile: {fileID: 21300000, guid: 76552652785a60a4e8bd14aa29d7356b, type: 3}
+    sentence:
+      portuguese: Lina, utilize seus poderes para acabar com esses monstros!
+      english: Lina, use your power to kill this monsters!
+  - actorName: Hat man
+    profile: {fileID: 21300000, guid: 76552652785a60a4e8bd14aa29d7356b, type: 3}
+    sentence:
+      portuguese: Use a tecla J para atacar e quebras as tochas e K para deslizar.
+      english: Use the key J to attack and break the torches and K to dash.
+  - actorName: Hat man
+    profile: {fileID: 21300000, guid: 76552652785a60a4e8bd14aa29d7356b, type: 3}
+    sentence:
+      portuguese: "Tamb\xE9m use seus poderes com a tecla I e para trocar seu poder,
+        use a tecla Q."
+      english: use your powers to with the Key I and to switch powers, use Q.
+  - actorName: Hat man
+    profile: {fileID: 21300000, guid: 76552652785a60a4e8bd14aa29d7356b, type: 3}
+    sentence:
+      portuguese: Salve as outras pessoas da vila, por favor!
+      english: Save the others, please!
+  - actorName: Lina
+    profile: {fileID: 21300000, guid: b79e321d44ee7a64ca718c9ba9e88d13, type: 3}
+    sentence:
+      portuguese: Pode deixar comigo, vou salvar os outros!
+      english: Lets count on me, i will do this!

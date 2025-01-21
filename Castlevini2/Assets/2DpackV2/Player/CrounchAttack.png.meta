@@ -1,7 +1,139 @@
 fileFormatVersion: 2
 guid: 2a08928b4d300d841b33527d2e34a4a3
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5161346619177876751
+    second: CrounchAttack_0
+  - first:
+      213: 7336649816478581180
+    second: CrounchAttack_1
+  - first:
+      213: -575728590442432959
+    second: CrounchAttack_2
+  - first:
+      213: -1513628423939037075
+    second: CrounchAttack_3
+  - first:
+      213: 4464234545458973150
+    second: CrounchAttack_4
+  - first:
+      213: -4839622906507010109
+    second: CrounchAttack_5
+  - first:
+      213: 995353819339174123
+    second: CrounchAttack_6
+  - first:
+      213: -7371772943762010909
+    second: CrounchAttack_7
+  - first:
+      213: -9119786904681828340
+    second: CrounchAttack_8
+  - first:
+      213: -2930294023827476963
+    second: CrounchAttack_9
+  - first:
+      213: 5959906559978809053
+    second: CrounchAttack_10
+  - first:
+      213: -5307799793461870252
+    second: CrounchAttack_0
+  - first:
+      213: -7953759217539958452
+    second: CrounchAttack_1
+  - first:
+      213: -4438957854948353626
+    second: CrounchAttack_2
+  - first:
+      213: -2189975973113409098
+    second: CrounchAttack_3
+  - first:
+      213: 5948108971188641104
+    second: CrounchAttack_4
+  - first:
+      213: -497892337565910852
+    second: CrounchAttack_5
+  - first:
+      213: -6081385210510580832
+    second: CrounchAttack_6
+  - first:
+      213: 4820927483985136229
+    second: CrounchAttack_7
+  - first:
+      213: -3244788585332077760
+    second: CrounchAttack_8
+  - first:
+      213: -1278251578961132193
+    second: CrounchAttack_9
+  - first:
+      213: 6935038428135880410
+    second: CrounchAttack_10
+  - first:
+      213: 1496705463905728282
+    second: CrounchAttack_11
+  - first:
+      213: 1229785232216614182
+    second: CrounchAttack_12
+  - first:
+      213: 630960186749855318
+    second: CrounchAttack_13
+  - first:
+      213: 3022472435703046960
+    second: CrounchAttack_14
+  - first:
+      213: 2921275780366848966
+    second: CrounchAttack_15
+  - first:
+      213: 7602103755754957746
+    second: CrounchAttack_16
+  - first:
+      213: 6994723714756958624
+    second: CrounchAttack_17
+  - first:
+      213: 5737525116515892369
+    second: CrounchAttack_18
+  - first:
+      213: 7460141781704784847
+    second: CrounchAttack_19
+  - first:
+      213: 7636426860760007735
+    second: CrounchAttack_20
+  - first:
+      213: 1132766003726864999
+    second: CrounchAttack_21
+  - first:
+      213: 4856619664375205880
+    second: CrounchAttack_22
+  - first:
+      213: -763896534615932919
+    second: CrounchAttack_23
+  - first:
+      213: -1886642282407223131
+    second: CrounchAttack_24
+  - first:
+      213: 7676331446830198804
+    second: CrounchAttack_25
+  - first:
+      213: 2172454800324013284
+    second: CrounchAttack_26
+  - first:
+      213: 7968585283612470417
+    second: CrounchAttack_27
+  - first:
+      213: -6421223245854342265
+    second: CrounchAttack_28
+  - first:
+      213: -6144897977220001242
+    second: CrounchAttack_29
+  - first:
+      213: -2337854927774782864
+    second: CrounchAttack_30
+  - first:
+      213: 7055045968862482918
+    second: CrounchAttack_31
+  - first:
+      213: -4235190529608289613
+    second: CrounchAttack_32
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +164,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +173,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +198,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,7 +231,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CrounchAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45140d3b538e656b0800000000000000
+      internalID: -5307799793461870252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49ba89e1229e9190800000000000000
+      internalID: -7953759217539958452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a99fda7957a562c0800000000000000
+      internalID: -4438957854948353626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b15fe79474ab91e0800000000000000
+      internalID: -2189975973113409098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_4
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d5309489deb8250800000000000000
+      internalID: 5948108971188641104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8bef29e812719f0800000000000000
+      internalID: -497892337565910852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_6
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3e3312f549a9ba0800000000000000
+      internalID: -6081385210510580832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_7
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a0ada110067e240800000000000000
+      internalID: 4820927483985136229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_8
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b0a0829f138f2d0800000000000000
+      internalID: -3244788585332077760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_9
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55807e16fcb24ee0800000000000000
+      internalID: -1278251578961132193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrounchAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 0
+        width: 142
+        height: 141
+      alignment: 9
+      pivot: {x: 0.58, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6f8bcf4b43e3060800000000000000
+      internalID: 6935038428135880410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

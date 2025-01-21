@@ -11,6 +11,8 @@ public class NPC_Dialogue : MonoBehaviour
 
     bool playerHit;
 
+    public Transform emote;
+
     private List<string> sentences = new List<string>();
     private List<string> actorName = new List<string>();
     private List<Sprite> actorSprite = new List<Sprite>();
@@ -62,10 +64,12 @@ public class NPC_Dialogue : MonoBehaviour
         if(hit != null)
         {
             playerHit = true;
+            emote.GetComponent<Animator>().Play("Emote2", 0);
         }
         else
         {
             playerHit = false;
+            emote.GetComponent<Animator>().Play("Emote1", 0);
         }
     }
 

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform floorCollider;
     public LayerMask floorLayer;
     [HideInInspector] public int handlingObj;
+    private int powerSelected = 0;
 
     public Transform gameOverScreen;
     public Transform pauseScreen;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool isKnockedBack = false;
     private float knockbackDuration = 0.5f;
     private float moveInput;
+    private bool isCrouch = false;
 
 
     [Header("Slopes")]
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
         Pause();
         DetectSlopes();
+        Crouch();
         Movement();
         Jump();
         Habilities();
@@ -138,6 +141,21 @@ public class PlayerController : MonoBehaviour
     private void EndKnockback()
     {
         isKnockedBack = false;
+    }
+
+    private void Crouch()
+    {
+        if(Input.GetKeyDown(KeyCode.S) && canJump)
+        {
+            skin.GetComponent<Animator>().SetBool("isCrouch", true);
+            isCrouch = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            skin.GetComponent<Animator>().SetBool("isCrouch", false);
+            isCrouch = false;
+        }
     }
 
     // MOVIMENTO
@@ -247,8 +265,21 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(attack1Sound, 0.4f);
         }
 
+        // ATAQUE CROUCHING
+        if(Input.GetButtonDown("Fire1") && comboTime > 0.7f && isCrouch == true)
+        {
+            comboTime = 0;
+            numCombo++;
+            if (numCombo > 1)
+            {
+                numCombo = 1;
+            }
+            skin.GetComponent<Animator>().Play("PlayerCrouchAttack", -1);
+            audioSource.PlayOneShot(attack1Sound, 0.4f);
+        }
+
         // ATAQUE NO CHÃO
-        if (Input.GetButtonDown("Fire1") && comboTime > 0.3f)
+        if (Input.GetButtonDown("Fire1") && comboTime > 0.3f && !isCrouch)
         {
             onAttack = true;
             numCombo++;
@@ -310,20 +341,31 @@ public class PlayerController : MonoBehaviour
         }
 
         // TECLAS DE ATALHO PARA PODERES
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        handlingObj = powerSelected;
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            handlingObj = 0;
+            powerSelected++;
+            if(powerSelected > 2)
+            {
+                powerSelected = 0;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            handlingObj = 1;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    handlingObj = 0;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            handlingObj = 2;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    handlingObj = 1;
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    handlingObj = 2;
+        //}
 
         spellTime = spellTime + Time.deltaTime;
         // BOTÃO 3 HOLY BOLT

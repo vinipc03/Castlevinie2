@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aa13869ca0a814ea7c47110ed19c9a, type: 3}
+  m_Name: NPC-Woman
+  m_EditorClassIdentifier: 
+  actor: {fileID: 538026389327333080, guid: 9659e6938225ed64f8bb06cd7de58b0f, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: Lady
+    profile: {fileID: 21300000, guid: 3b0f4357a7d037b45a0dffd41b21eab3, type: 3}
+    sentence:
+      portuguese: "Lina, voc\xEA veio!"
+      english: Lina, you come!
+  - actorName: Lady
+    profile: {fileID: 21300000, guid: 3b0f4357a7d037b45a0dffd41b21eab3, type: 3}
+    sentence:
+      portuguese: "Voc\xEA pode descer por algumas plataformas aprterando a tecla
+        S para ir pra baixo."
+      english: You can pass some platforms using the S key to drop down.
+  - actorName: Lady
+    profile: {fileID: 21300000, guid: 3b0f4357a7d037b45a0dffd41b21eab3, type: 3}
+    sentence:
+      portuguese: Aperte S nas escadas e colete alguns recursos.
+      english: Use S in the stairs and colect some resources.
+  - actorName: Lady
+    profile: {fileID: 21300000, guid: 3b0f4357a7d037b45a0dffd41b21eab3, type: 3}
+    sentence:
+      portuguese: "Use as tecla 1 para po\xE7\xE3o de vida e 2 para po\xE7\xE3o de
+        mana, boa sorte!"
+      english: Press the key 1 to use health potion and key 2 to use a mana potion,
+        good luck!
+  - actorName: Lina
+    profile: {fileID: 21300000, guid: b79e321d44ee7a64ca718c9ba9e88d13, type: 3}
+    sentence:
+      portuguese: Muito obrigado!
+      english: Thank you!
