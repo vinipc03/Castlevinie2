@@ -6,7 +6,7 @@ public class FireballScript : MonoBehaviour
 {
     public float speed = 5f;
     public Rigidbody2D rb;
-    public GameObject impactEffect;
+    public GameObject fireEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,8 @@ public class FireballScript : MonoBehaviour
         {
             Destroy(this.gameObject);
             collision.GetComponent<Character>().PlayerDamage(1);
-            Instantiate(impactEffect, transform.position, transform.rotation);
+            collision.GetComponent<PlayerController>().KnockBack(transform.position);
+            Instantiate(fireEffect, transform.position, transform.rotation);
         }
     }
 }

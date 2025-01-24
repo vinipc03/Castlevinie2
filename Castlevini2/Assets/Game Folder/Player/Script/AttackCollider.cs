@@ -7,7 +7,7 @@ public class AttackCollider : MonoBehaviour
     public Transform player;
     public GameObject impactEffect;
     private float horizontal;
-    [HideInInspector] private bool isFacingRight = true;
+    private bool isFacingRight = true;
     public AudioSource audioSource;
     public AudioClip hitSound;
 

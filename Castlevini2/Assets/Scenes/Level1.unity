@@ -6758,7 +6758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725103117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.95, y: 33.16, z: 10}
+  m_LocalPosition: {x: 321.36, y: 33.16, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 158491281}
@@ -72329,12 +72329,12 @@ MonoBehaviour:
   walkSpeed: 2
   posX: 0
   meleeRange: 0
-  meleeRangeRadius: 6
+  meleeRangeRadius: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
   distanceRange: 0
-  distanceRangeRadius: 0
+  distanceRangeRadius: 14
 --- !u!70 &1470361572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -73987,7 +73987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCollider: {fileID: 545700152}
-  fireBallPrefab: {fileID: 0}
+  fireBallPrefab: {fileID: 3749875942629997327, guid: 329176e242b3fd74da23c315e9d50ea3, type: 3}
 --- !u!4 &1838446145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8378533938880630213, guid: 95c96e1fb602a384e8a9ae5f54ac7f2e, type: 3}

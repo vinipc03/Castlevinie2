@@ -36,6 +36,7 @@ public class EvilWizardController : MonoBehaviour
             return;
         }
         MeleeAggroVision();
+        RangedAggroVision();
         UpdateRotation();
     }
 
@@ -62,7 +63,6 @@ public class EvilWizardController : MonoBehaviour
             if (distance < 5f && timer > 3f)
             {
                 timer = 0;
-                Debug.Log("Atacou o player");
                 skin.GetComponent<Animator>().Play("AttackMelee", -1);
             }
         }
@@ -70,6 +70,24 @@ public class EvilWizardController : MonoBehaviour
         {
             skin.GetComponent<Animator>().SetBool("isRunning", false);
         }
+    }
+
+    private void RangedAggroVision()
+    {
+        distanceRange = Physics2D.OverlapCircle(transform.position, distanceRangeRadius, playerLayer);
+
+        if (!meleeRange)
+        {
+            if (distanceRange)
+            {
+                if (timer > 2f)
+                {
+                    timer = 0;
+                    skin.GetComponent<Animator>().Play("AttackRanged");
+                }
+            }
+        }
+        
     }
 
     void UpdateRotation()
@@ -100,6 +118,7 @@ public class EvilWizardController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, meleeRangeRadius);
+        Gizmos.DrawWireSphere(transform.position, distanceRangeRadius);
         //Gizmos.DrawWireSphere(overHeadCollider.position, overHeadRadius);
     }
 }
