@@ -17,12 +17,12 @@ public class FireballScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(fireEffect, transform.position, transform.rotation);
         if (collision.CompareTag("Player"))
         {
             Destroy(this.gameObject);
             collision.GetComponent<Character>().PlayerDamage(1);
             collision.GetComponent<PlayerController>().KnockBack(transform.position);
-            Instantiate(fireEffect, transform.position, transform.rotation);
         }
     }
 }

@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95aa13869ca0a814ea7c47110ed19c9a, type: 3}
+  m_Name: NPC-Chef
+  m_EditorClassIdentifier: 
+  actor: {fileID: 0}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: Chef
+    profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
+    sentence:
+      portuguese: "Muito obrigado por nos salvar, somos eternamente gratos a voc\xEA,
+        Lina!"
+      english: 
+  - actorName: Chef
+    profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
+    sentence:
+      portuguese: "Parece que mais ataques de monstros foram vistos no grande cemit\xE9rio."
+      english: 
+  - actorName: Chef
+    profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
+    sentence:
+      portuguese: "Tenho certeza que tem algo muito maior al\xE9m desse ataque."
+      english: 
+  - actorName: Chef
+    profile: {fileID: 21300000, guid: 660a2f2dc487e6e46978a86bf590a161, type: 3}
+    sentence:
+      portuguese: "Siga sua jornada e derrote quem est\xE1 por tr\xE1s disso, confiamos
+        em vc, Lina!"
+      english: 
+  - actorName: Hat man
+    profile: {fileID: 21300000, guid: 76552652785a60a4e8bd14aa29d7356b, type: 3}
+    sentence:
+      portuguese: Vai com tudo neles!
+      english: 
+  - actorName: Oldman
+    profile: {fileID: 21300000, guid: 4818774f8aecf954f9a7735e5664778f, type: 3}
+    sentence:
+      portuguese: "Se minhas costas n\xE3o doessem tanto... Agora \xE9 com voc\xEA!"
+      english: 
+  - actorName: Lady
+    profile: {fileID: 21300000, guid: 3b0f4357a7d037b45a0dffd41b21eab3, type: 3}
+    sentence:
+      portuguese: "Tenho certeza que voc\xEA vai derrotar quem est\xE1 por tr\xE1s
+        disso, confiamos em voc\xEA, Lina!"
+      english: 
+  - actorName: Lina
+    profile: {fileID: 21300000, guid: b79e321d44ee7a64ca718c9ba9e88d13, type: 3}
+    sentence:
+      portuguese: Podem contar comigo, pessoal!
+      english: 

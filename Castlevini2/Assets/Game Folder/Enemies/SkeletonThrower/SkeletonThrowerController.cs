@@ -40,12 +40,15 @@ public class SkeletonThrowerController : MonoBehaviour
 
         if (distance < visionRadius)
         {
-            if(distance < 2.5f && timer >2f)
+
+            Debug.Log("Player entrou na área de visão");
+            if (distance < 2.5f && timer >2f)
             {
                 isAttacking = true;
                 audioSource.PlayOneShot(attackMelee, 0.5f);
                 timer = 0;
                 skin.GetComponent<Animator>().Play("AttackMelee", -1);
+                
             }
             else
             {

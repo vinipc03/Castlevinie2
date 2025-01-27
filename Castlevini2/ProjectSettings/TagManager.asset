@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - OneWayPlatform
   - PlayerAttack
+  - GM
   layers:
   - Default
   - TransparentFX
