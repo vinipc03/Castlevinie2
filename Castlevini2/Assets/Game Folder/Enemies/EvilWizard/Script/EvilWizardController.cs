@@ -19,6 +19,12 @@ public class EvilWizardController : MonoBehaviour
     [SerializeField] private bool distanceRange;
     public float distanceRangeRadius;
 
+    // SOUNDS
+    public AudioSource audioSource;
+    public AudioClip attackMelee;
+    public AudioClip attackRanged;
+    public AudioClip die;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +70,7 @@ public class EvilWizardController : MonoBehaviour
             {
                 timer = 0;
                 skin.GetComponent<Animator>().Play("AttackMelee", -1);
+                audioSource.PlayOneShot(attackMelee, 0.5f);
             }
         }
         else
@@ -84,6 +91,7 @@ public class EvilWizardController : MonoBehaviour
                 {
                     timer = 0;
                     skin.GetComponent<Animator>().Play("AttackRanged");
+                    audioSource.PlayOneShot(attackRanged, 0.5f);
                 }
             }
         }
@@ -110,6 +118,7 @@ public class EvilWizardController : MonoBehaviour
     {
         if (GetComponent<Character>().life <= 0)
         {
+            audioSource.PlayOneShot(die, 0.5f);
             GetComponent<CapsuleCollider2D>().enabled = false;
             this.enabled = false;
         }
@@ -119,6 +128,5 @@ public class EvilWizardController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, meleeRangeRadius);
         Gizmos.DrawWireSphere(transform.position, distanceRangeRadius);
-        //Gizmos.DrawWireSphere(overHeadCollider.position, overHeadRadius);
     }
 }

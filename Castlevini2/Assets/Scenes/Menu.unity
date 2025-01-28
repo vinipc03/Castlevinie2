@@ -645,7 +645,7 @@ MonoBehaviour:
     Potions:
     1, 2
 
-    Powers: 3, 4, 5
+    Powers: Q
 
     Use Power: i'
 --- !u!222 &410935042

@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool canJump;
     public bool isJumping = false;
     public float jumpForce;
+    public float dashSpeed;
     float jumpTime;
     float dashTime;
     public float kbForce;
@@ -299,7 +300,8 @@ public class PlayerController : MonoBehaviour
             dashTime = 0;
             skin.GetComponent<Animator>().Play("PlayerDash", -1);
             rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(skin.localScale.x * 200, 0));
+            rb.velocity = new Vector2(skin.localScale.x * dashSpeed, rb.velocity.y);
+            //rb.AddForce(new Vector2(skin.localScale.x * 200, 0));
             rb.gravityScale = 0;
             Invoke("RestoreGravityScale", 0.25f);
         }

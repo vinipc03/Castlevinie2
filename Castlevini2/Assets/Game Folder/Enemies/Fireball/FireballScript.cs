@@ -8,6 +8,9 @@ public class FireballScript : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject fireEffect;
 
+    public AudioSource audioSource;
+    public AudioClip explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +20,13 @@ public class FireballScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(fireEffect, transform.position, transform.rotation);
         if (collision.CompareTag("Player"))
         {
             Destroy(this.gameObject);
             collision.GetComponent<Character>().PlayerDamage(1);
             collision.GetComponent<PlayerController>().KnockBack(transform.position);
+            Instantiate(fireEffect, transform.position, transform.rotation);
+            audioSource.PlayOneShot(explosion, 0.5f);
         }
     }
 }
