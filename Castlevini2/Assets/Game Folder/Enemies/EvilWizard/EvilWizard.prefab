@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 801239891301098622}
   - component: {fileID: 801239891301098617}
   - component: {fileID: 801239891301098616}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 801239891470900689}
   - component: {fileID: 801239891470900688}
   - component: {fileID: 1553337689709233170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EvilWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   distanceRange: 0
-  distanceRangeRadius: 14
+  distanceRangeRadius: 15
   audioSource: {fileID: 1553337689709233170}
   attackMelee: {fileID: 8300000, guid: e354f50c175d4644daa54c4c96dc5737, type: 3}
   attackRanged: {fileID: 8300000, guid: 9b356ff4aa39799469a7935ebdf7750c, type: 3}
@@ -215,6 +215,8 @@ MonoBehaviour:
   lifeBar: {fileID: 0}
   manaBar: {fileID: 0}
   kbForce: 0
+  iFramesDuration: 0
+  numberOfFlashes: 0
 --- !u!82 &1553337689709233170
 AudioSource:
   m_ObjectHideFlags: 0
@@ -228,7 +230,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.5
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -322,7 +324,7 @@ GameObject:
   - component: {fileID: 801239892190006029}
   - component: {fileID: 801239892190006028}
   - component: {fileID: 801239892190006031}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -370,6 +372,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26199278, y: 0.27697277}
-  m_Size: {x: 2.1221137, y: 3.2833927}
+  m_Offset: {x: 0.22084269, y: 0.27697277}
+  m_Size: {x: 2.2044117, y: 3.2833927}
   m_Direction: 0

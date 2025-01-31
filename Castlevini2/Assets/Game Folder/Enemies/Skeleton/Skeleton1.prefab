@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 572920241593420850}
   - component: {fileID: 7956222870384359455}
   - component: {fileID: 7122846456551790262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 572920241823055310}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 572920242164319438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skeleton1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 572920242733390475}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 572920242838810232}
   - component: {fileID: 572920242838810233}
   - component: {fileID: 572920242838810234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

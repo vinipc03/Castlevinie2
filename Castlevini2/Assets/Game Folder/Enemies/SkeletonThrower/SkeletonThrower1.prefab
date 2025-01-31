@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8067423891349576778}
   - component: {fileID: 8067423891349576779}
   - component: {fileID: 8067423891349576776}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: KnifePosition
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8067423891375733052}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkeletonThrower1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8067423891832030453}
   - component: {fileID: 4774868526013232799}
   - component: {fileID: 4501983341699026192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SkeletonThrower
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 8067423892307190917}
   - component: {fileID: 8067423892307190916}
   - component: {fileID: 8067423892307190914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
