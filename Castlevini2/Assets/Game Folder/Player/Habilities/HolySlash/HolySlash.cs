@@ -19,7 +19,7 @@ public class HolySlash : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Character>().PlayerDamage(3);
+            collision.GetComponent<Character>().PlayerDamage(2);
             Instantiate(impactEffect, transform.position, transform.rotation);
         }
     }

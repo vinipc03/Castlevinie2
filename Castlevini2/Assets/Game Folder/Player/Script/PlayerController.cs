@@ -439,21 +439,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    handlingObj = 0;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    handlingObj = 1;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Alpha5))
-        //{
-        //    handlingObj = 2;
-        //}
-
         spellTime = spellTime + Time.deltaTime;
         // BOTÃO 3 HOLY BOLT
         if (handlingObj == 0)
@@ -486,7 +471,7 @@ public class PlayerController : MonoBehaviour
                         onAttack = true;
                         holySlash = true;
                         skin.GetComponent<Animator>().Play("PlayerHolySlash", -1);
-                        this.GetComponent<Character>().MpDecrease(2);
+                        this.GetComponent<Character>().MpDecrease(1);
                         spellTime = 0;
                     }
                 }
