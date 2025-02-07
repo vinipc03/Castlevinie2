@@ -92,13 +92,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5ed14b71946c4418d513583829280a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
   skin: {fileID: 3528210320576323080}
   obstacleCollider: {fileID: 3528210319620061950}
-  obstacleRadius: 0.4
+  obstacleRadius: 0.2
   floorLayer:
     serializedVersion: 2
     m_Bits: 256
