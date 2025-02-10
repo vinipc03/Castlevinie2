@@ -8,6 +8,7 @@ public class UbdeadHandController : MonoBehaviour
     private bool detectPlayer;
     public LayerMask playerLayer;
     public Transform skin;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +42,21 @@ public class UbdeadHandController : MonoBehaviour
         }
     }
 
+    private void ReleasePlayer()
+    {
+        player.GetComponent<PlayerController>().enabled = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            player = collision.transform;
             collision.GetComponent<Character>().PlayerDamage(1);
-            collision.GetComponent<PlayerController>().KnockBack(transform.position);
+            collision.GetComponent<PlayerController>().enabled = false;
+            collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            
+            Invoke("ReleasePlayer", 1.5f);
         }
     }
 

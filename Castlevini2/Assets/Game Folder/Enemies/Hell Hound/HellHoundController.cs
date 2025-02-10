@@ -6,7 +6,7 @@ public class HellHoundController : MonoBehaviour
 {
     public Transform skin;
     private Rigidbody2D rb;
-    private CapsuleCollider2D collider;
+    public CapsuleCollider2D houndcollider;
     public string layerName = "TilemapFront";
 
     private bool detectPlayer;
@@ -26,50 +26,48 @@ public class HellHoundController : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] Transform groundCheck;
     [SerializeField] Vector2 boxSize;
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        collider = GetComponent<CapsuleCollider2D>();
+        houndcollider = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, floorLayer);
         UpdateRotation();
-        
         Movement();
+        GroundCheck();
+        Death();
     }
 
     private void FixedUpdate()
     {
         timer += Time.deltaTime;
         posX = player.transform.position.x - transform.position.x;
-        GroundCheck();
+        isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, floorLayer);
     }
 
 
     private void JumpAttack()
     {
-        if (isGrounded)
-        {
-            isGrounded = false;
-            rb.isKinematic = false;
-            skin.GetComponent<Animator>().Play("Jump", -1);
-            rb.AddForce(new Vector2(posX, jumpHeight), ForceMode2D.Impulse);
-        }
+        skin.GetComponent<Animator>().Play("Jump", -1);
+        rb.AddForce(new Vector2(posX, jumpHeight), ForceMode2D.Impulse);
     }
 
     private void GroundCheck()
     {
         if (isGrounded)
         {
-            rb.velocity = Vector2.zero;
-            rb.isKinematic = true; // Mantenha a física ativa
+            houndcollider.isTrigger = false;
+        }
+        else
+        {
+            houndcollider.isTrigger = true;
         }
     }
 
@@ -83,7 +81,7 @@ public class HellHoundController : MonoBehaviour
             if (canjump)
             {
                 skin.GetComponent<Animator>().SetBool("isRunning", false);
-                if (timer > 2)
+                if (timer > 1.5f)
                 {
                     timer = 0;
                     JumpAttack();
@@ -102,50 +100,15 @@ public class HellHoundController : MonoBehaviour
         }
     }
 
-    private void Attack()
+    void Death()
     {
-        skin.GetComponent<Animator>().Play("Jump", -1);
-
-        rb.isKinematic = false; // Ativa a física antes do pulo
-
-        // Se o inimigo está virado para a esquerda, aplica a força negativa, se estiver para a direita aplica a positiva.
-        if (posX < 0)
+        if (GetComponent<Character>().life <= 0)
         {
-            rb.velocity = Vector2.zero; // Garante que não há movimento acumulado
-            rb.AddForce(new Vector2(-220f, 100f));
+            //audioSource.PlayOneShot(die, 0.5f);
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            this.enabled = false;
+            rb.simulated = false;
         }
-        else
-        {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(220f, 100f));
-        }
-
-
-    }
-
-    private IEnumerator Jump()
-    {
-        isGrounded = false;
-        yield return new WaitForSeconds(0.5f);
-        //canjump = false; // Impede que o inimigo tente pular várias vezes seguidas
-
-        //skin.GetComponent<Animator>().Play("Jump", -1);
-        //rb.isKinematic = false; // Ativa a física antes do pulo
-        //rb.velocity = Vector2.zero; // Garante que não há movimento acumulado
-
-        //if (posX < 0)
-        //{
-        //    rb.AddForce(new Vector2(-15f, 30f), ForceMode2D.Impulse);
-        //}
-        //else
-        //{
-        //    rb.AddForce(new Vector2(15f, 30f), ForceMode2D.Impulse);
-        //}
-
-        //yield return new WaitForSeconds(2f);
-
-        //rb.velocity = Vector2.zero; // Para o movimento após o pulo
-        //canjump = true; // Permite outro pulo depois de um tempo
     }
 
     void UpdateRotation()
@@ -166,14 +129,11 @@ public class HellHoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (isGrounded)
-        //{
-        //    if (collision.CompareTag("Floor") || collision.gameObject.layer == LayerMask.NameToLayer(layerName))
-        //    {
-        //        rb.velocity = Vector2.zero;
-        //        rb.isKinematic = true; // Mantenha a física ativa
-        //    }
-        //}
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<Character>().PlayerDamage(1);
+            collision.GetComponent<PlayerController>().KnockBack(transform.position);
+        }
 
     }
 
@@ -182,6 +142,6 @@ public class HellHoundController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
         Gizmos.DrawWireSphere(transform.position, jumpRadius);
 
-        Gizmos.DrawCube(groundCheck.position, boxSize);
+        Gizmos.DrawWireCube(groundCheck.position, boxSize);
     }
 }
