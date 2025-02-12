@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movements")]
     public float walkSpeed;
     [HideInInspector] public bool canJump;
+    [SerializeField] Vector2 boxSize;
     public bool isJumping = false;
     public float jumpForce;
     public float dashSpeed;
@@ -315,7 +316,9 @@ public class PlayerController : MonoBehaviour
     // PULO
     private void Jump()
     {
-        canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
+
+        //canJump = Physics2D.OverlapCircle(this.transform.position, 0.2f, floorLayer);
+        canJump = Physics2D.OverlapBox(floorCollider.position, boxSize, 0, floorLayer);
         jumpTime = jumpTime + Time.deltaTime;
         if (Input.GetButtonDown("Jump") && canJump && dashTime > 0.25f)
         {
@@ -540,7 +543,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
+        //Gizmos.DrawWireSphere(floorCollider.position, 0.2f);
+        Gizmos.DrawWireCube(floorCollider.position, boxSize);
         //Gizmos.DrawWireSphere(overHeadCollider.position, overHeadRadius);
     }
 }
