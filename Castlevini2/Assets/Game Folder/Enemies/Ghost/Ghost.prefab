@@ -170,7 +170,7 @@ MonoBehaviour:
     m_Bits: 1024
   posX: 0
   radius: 5
-  speed: 1.2
+  speed: 1.6
   attack: 0
   attackRange: 1
 --- !u!114 &3948895707182408352
